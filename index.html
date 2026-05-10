@@ -18,17 +18,14 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);overflow-x:hidden}
-
 /* ─── CURSEUR ─── */
 .cur{position:fixed;width:8px;height:8px;border-radius:50%;background:var(--sun);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen}
 .cur-r{position:fixed;width:34px;height:34px;border-radius:50%;border:1px solid rgba(245,166,35,.4);pointer-events:none;z-index:9998;transform:translate(-50%,-50%)}
-
 /* ─── CANVAS ─── */
 #cv{position:fixed;inset:0;z-index:0;width:100%;height:100%}
 .grain{position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.03;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size:160px}
-
 /* ═══════════════════════
    SECTION 1 — HERO
 ═══════════════════════ */
@@ -42,13 +39,11 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
   content:'';position:absolute;inset:0;z-index:1;
   background:radial-gradient(ellipse at center,rgba(0,0,0,.1) 0%,rgba(0,0,0,.32) 100%);
 }
-
 .photo-content{
   position:relative;z-index:3;
   text-align:center;padding:20px;
   display:flex;flex-direction:column;align-items:center;
 }
-
 /* ── PHOTO FRAME ── */
 .nissim-wrap{
   position:relative;
@@ -62,7 +57,6 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
   animation:haloPulse 3s ease-in-out infinite alternate;
 }
 @keyframes haloPulse{from{opacity:.5;transform:scale(.95)}to{opacity:1;transform:scale(1.06)}}
-
 .nissim-frame{
   width:min(210px,55vw);
   aspect-ratio:3/4;
@@ -78,14 +72,12 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
     0 24px 70px rgba(0,0,0,.6);
 }
 .nissim-photo{width:100%;height:100%;object-fit:cover;object-position:center 8%}
-
 .star-dec{position:absolute;color:var(--sun);filter:drop-shadow(0 0 6px rgba(245,166,35,.8));animation:starFloat 3s ease-in-out infinite}
 .star-dec:nth-child(1){top:-12px;left:-18px;font-size:1rem;animation-delay:0s}
 .star-dec:nth-child(2){top:18px;right:-22px;font-size:.75rem;animation-delay:.7s}
 .star-dec:nth-child(3){bottom:28px;left:-22px;font-size:.7rem;animation-delay:1.4s}
 .star-dec:nth-child(4){bottom:-8px;right:-12px;font-size:1rem;animation-delay:2.1s}
 @keyframes starFloat{0%,100%{transform:translateY(0) rotate(0);opacity:.7}50%{transform:translateY(-8px) rotate(15deg);opacity:1}}
-
 .badge-float{
   position:absolute;
   background:linear-gradient(135deg,rgba(200,75,49,.88),rgba(160,40,20,.92));
@@ -97,7 +89,6 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
 .badge-float.right{right:-78px;top:56%;animation:bfR 4s ease-in-out infinite .5s}
 @keyframes bfL{0%,100%{transform:rotate(-8deg) translateY(0)}50%{transform:rotate(-8deg) translateY(-6px)}}
 @keyframes bfR{0%,100%{transform:rotate(8deg) translateY(0)}50%{transform:rotate(8deg) translateY(-6px)}}
-
 /* ── TEXTE HERO ── */
 .h-badge{
   font-family:'Cinzel',serif;font-size:.48rem;letter-spacing:9px;color:var(--sun);
@@ -130,7 +121,6 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
   color:rgba(255,255,255,.6);
   opacity:0;animation:fadeUp .9s ease 1.38s forwards;margin-bottom:28px;
 }
-
 #btn-enter{
   position:relative;overflow:hidden;
   display:inline-flex;align-items:center;justify-content:center;gap:12px;
@@ -146,19 +136,15 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
 #btn-enter:hover{border-color:transparent;color:white;box-shadow:0 20px 60px rgba(200,75,49,.4)}
 #btn-enter:hover::before{opacity:1}
 #btn-enter span{position:relative;z-index:1}
-
 /* ── BOTANIQUES SVG ── */
 .botanical{position:absolute;z-index:2;pointer-events:none}
 .botanical.bl{bottom:8%;left:0;width:min(190px,25vw);opacity:.42;transform-origin:bottom left}
 .botanical.br{bottom:6%;right:0;width:min(190px,25vw);opacity:.42;transform:scaleX(-1);transform-origin:bottom right}
 .botanical.tl{top:4%;left:0;width:min(150px,20vw);opacity:.28}
 .botanical.tr{top:4%;right:0;width:min(150px,20vw);opacity:.28;transform:scaleX(-1)}
-
-/* Scroll hint */
 .scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0;animation:fadeUp .6s ease 2.4s forwards}
 .scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,transparent,rgba(245,166,35,.5));animation:sPulse 2s ease-in-out infinite}
 @keyframes sPulse{0%,100%{opacity:.3}50%{opacity:1}}
-
 /* ═══════════════════════
    SECTION 2 — INVITATION
 ═══════════════════════ */
@@ -172,7 +158,6 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M20 0 L40 20 L20 40 L0 20 Z' fill='none' stroke='rgba(200%2C169%2C110%2C0.04)' stroke-width='1'/%3E%3Ccircle cx='20' cy='20' r='2.5' fill='rgba(200%2C75%2C49%2C0.03)'/%3E%3C/svg%3E");
   background-size:40px 40px;
 }
-
 .inv-hero{text-align:center;margin-bottom:52px;padding:0 10px;position:relative;z-index:1}
 .inv-eyebrow{font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:9px;color:var(--sun);display:block;margin-bottom:14px;opacity:0;transition:opacity .8s,transform .8s;transform:translateY(20px)}
 .inv-eyebrow.vis{opacity:1;transform:translateY(0)}
@@ -192,10 +177,8 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
 .sg{width:6px;height:6px;transform:rotate(45deg);box-shadow:0 0 8px rgba(200,75,49,.7)}
 .sg.r{background:var(--terra)}.sg.g{background:var(--gold)}.sg.b{background:var(--azure2)}
 .sl{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(245,166,35,.4),transparent)}
-
 /* ─── CARDS ─── */
 .cards-wrap{display:flex;flex-direction:column;align-items:center;gap:26px;width:100%;max-width:460px;position:relative;z-index:1}
-
 .card{
   width:100%;border-radius:24px;padding:40px 28px;
   position:relative;overflow:hidden;text-align:center;
@@ -208,34 +191,27 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
 }
 .card.vis{opacity:1;transform:translateY(0)}
 .card:hover{border-color:rgba(200,75,49,.38);box-shadow:0 24px 70px rgba(0,0,0,.7),0 0 50px rgba(245,166,35,.06)}
-
 .card::before{
   content:'';position:absolute;top:0;left:0;right:0;height:3px;
   background:linear-gradient(90deg,var(--terra),var(--sun),var(--azure2),var(--sun),var(--terra));
   background-size:200%;animation:barShimmer 4s linear infinite;
 }
 @keyframes barShimmer{to{background-position:200% 0}}
-
 .card::after{content:'';position:absolute;bottom:0;right:0;width:60px;height:60px;border-bottom:1px solid rgba(200,75,49,.25);border-right:1px solid rgba(200,75,49,.25);border-radius:0 0 24px 0;pointer-events:none}
-
 .c-glow{position:absolute;border-radius:50%;pointer-events:none;width:200px;height:200px;top:-60px;right:-60px;background:radial-gradient(circle,rgba(245,166,35,.07) 0%,transparent 70%);animation:gPulse 5s ease-in-out infinite alternate}
 .c-glow2{background:radial-gradient(circle,rgba(200,75,49,.06) 0%,transparent 70%);left:-60px;right:auto;top:-40px}
 @keyframes gPulse{from{opacity:.5;transform:scale(1)}to{opacity:1;transform:scale(1.3)}}
-
 .c-eye{font-family:'Cinzel',serif;font-size:.48rem;letter-spacing:7px;color:var(--terra2);display:block;margin-bottom:8px}
 .c-icon{font-size:2rem;display:block;margin-bottom:10px}
 .c-heb{font-family:serif;font-size:1.8rem;color:var(--sun);display:block;margin-bottom:8px;text-shadow:0 0 20px rgba(245,166,35,.35)}
 .c-title{font-family:'Cinzel',serif;font-size:clamp(.9rem,3.5vw,1.25rem);font-weight:500;color:white;margin-bottom:18px}
-
 .c-div{display:flex;align-items:center;justify-content:center;gap:5px;margin:0 auto 22px}
 .cdg{width:4px;height:4px;transform:rotate(45deg)}
 .cdg.r{background:var(--terra)}.cdg.g{background:var(--sun);width:6px;height:6px}.cdg.b{background:var(--azure2)}
 .cdl{width:30px;height:1px;background:linear-gradient(90deg,transparent,rgba(245,166,35,.4),transparent)}
-
 .c-body{font-size:1.08rem;line-height:2.1;color:rgba(255,255,255,.7);font-style:italic}
 .c-body strong{font-style:normal;color:white;font-weight:600}
 .c-body em{color:var(--gold2);font-style:italic}
-
 .btn-nav{
   display:inline-flex;align-items:center;gap:8px;margin-top:24px;padding:12px 28px;
   border:1px solid rgba(200,75,49,.35);background:rgba(200,75,49,.08);color:var(--gold2);
@@ -247,7 +223,6 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
 .btn-nav:hover{color:white;border-color:transparent;box-shadow:0 10px 30px rgba(200,75,49,.3)}
 .btn-nav:hover::before{opacity:1}
 .btn-nav span{position:relative;z-index:1}
-
 /* ─── COUNTDOWN ─── */
 .countdown{display:flex;align-items:stretch;justify-content:center;gap:8px;margin:26px 0 4px}
 .tb{flex:1;text-align:center;max-width:72px}
@@ -257,7 +232,6 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
 .tlbl{font-family:'Cinzel',serif;font-size:.34rem;letter-spacing:3px;color:var(--terra2)}
 .tsep{font-family:'Cinzel',serif;font-size:1rem;color:rgba(200,75,49,.4);align-self:center;margin-bottom:14px;width:14px;text-align:center;flex-shrink:0}
 #mz{display:none;font-family:'Great Vibes',cursive;font-size:2.8rem;color:var(--sun);margin:18px 0;text-shadow:0 0 40px rgba(245,166,35,.5)}
-
 /* ─── RSVP FORM ─── */
 .f-grp{margin-top:18px;text-align:left}
 .f-lbl{font-family:'Cinzel',serif;font-size:.48rem;letter-spacing:5px;color:var(--terra2);display:block;margin-bottom:9px}
@@ -284,10 +258,8 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
 .conf-icon{font-size:3.5rem;display:block;animation:popIn .7s cubic-bezier(.175,.885,.32,1.275)}
 .conf-txt{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:4px;color:var(--gold2);margin-top:18px;line-height:2.4}
 @keyframes popIn{from{transform:scale(0) rotate(-15deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
-
 /* ─── FOOTER ─── */
 footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba(200,75,49,.25);text-align:center;margin-top:30px;padding-bottom:10px;position:relative;z-index:1}
-
 /* ─── MUSIQUE ─── */
 #music-btn{position:fixed;bottom:28px;right:24px;z-index:200;width:54px;height:54px;border-radius:50%;border:1px solid rgba(200,75,49,.35);background:linear-gradient(145deg,rgba(25,12,8,.92),rgba(14,10,20,.96));backdrop-filter:blur(16px);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(0,0,0,.6);transition:border-color .3s,box-shadow .3s,transform .2s;overflow:hidden}
 #music-btn::before{content:'';position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(245,166,35,.14),transparent 70%)}
@@ -304,12 +276,10 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
 .eq-bar:nth-child(4){height:14px;animation:eq4 .7s ease-in-out infinite alternate}
 @keyframes eq1{to{height:16px}}@keyframes eq2{to{height:8px}}@keyframes eq3{to{height:18px}}@keyframes eq4{to{height:6px}}
 .eq.paused .eq-bar{animation:none;height:4px!important;opacity:.4}
-
 /* ─── ANIMATIONS ─── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 .spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(245,166,35,.3);border-top-color:var(--sun);border-radius:50%;animation:spin .8s linear infinite;vertical-align:middle;margin-right:8px}
 @keyframes spin{to{transform:rotate(360deg)}}
-
 @media(max-width:420px){
   .card{padding:32px 18px}
   #section-invite{padding:60px 14px 80px}
@@ -319,13 +289,15 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
 </style>
 </head>
 <body>
-
 <div class="cur" id="C"></div>
 <div class="cur-r" id="R"></div>
 <canvas id="cv"></canvas>
 <div class="grain"></div>
 
-<audio id="audio" src="musique.mp3" loop preload="none"></audio>
+<!-- ✅ MUSIQUE INTÉGRÉE EN BASE64 DANS LE FICHIER SAUVEGARDÉ -->
+<!-- Si tu copie-colles ce code, remplace musique.mp3 par ton fichier -->
+<audio id="audio" src="musique.mp3" loop preload="auto"></audio>
+
 <button id="music-btn" data-tip="MUSIQUE" aria-label="Musique">
   <div class="eq paused" id="eq">
     <div class="eq-bar"></div><div class="eq-bar"></div>
@@ -335,7 +307,6 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
 
 <!-- ══ SECTION 1 : HERO ══ -->
 <section id="section-photo">
-
   <svg class="botanical bl" viewBox="0 0 200 420" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M28 410 Q55 320 85 265 Q115 210 95 155 Q75 100 108 55" stroke="#7A9E7E" stroke-width="2.5" fill="none" stroke-linecap="round"/>
     <ellipse cx="92" cy="250" rx="28" ry="12" fill="#5B7A5F" opacity=".85" transform="rotate(-30 92 250)"/>
@@ -349,7 +320,6 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
     <ellipse cx="42" cy="258" rx="18" ry="8" fill="#5B7A5F" opacity=".6" transform="rotate(-42 42 258)"/>
     <circle cx="36" cy="230" r="6" fill="#F5A623" opacity=".5"/>
   </svg>
-
   <svg class="botanical br" viewBox="0 0 200 420" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M28 410 Q55 320 85 265 Q115 210 95 155 Q75 100 108 55" stroke="#7A9E7E" stroke-width="2.5" fill="none" stroke-linecap="round"/>
     <ellipse cx="92" cy="250" rx="28" ry="12" fill="#5B7A5F" opacity=".85" transform="rotate(-30 92 250)"/>
@@ -360,7 +330,6 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
     <circle cx="108" cy="215" r="8" fill="#F5A623" opacity=".65"/>
     <circle cx="90" cy="163" r="7" fill="#E07850" opacity=".55"/>
   </svg>
-
   <svg class="botanical tl" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M10 185 Q45 125 85 92 Q125 60 158 18" stroke="#7A9E7E" stroke-width="2" fill="none" stroke-linecap="round"/>
     <ellipse cx="92" cy="87" rx="22" ry="9" fill="#5B7A5F" opacity=".7" transform="rotate(-22 92 87)"/>
@@ -369,7 +338,6 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
     <circle cx="87" cy="76" r="7" fill="#F5A623" opacity=".55"/>
     <circle cx="120" cy="48" r="6" fill="#E07850" opacity=".45"/>
   </svg>
-
   <svg class="botanical tr" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M10 185 Q45 125 85 92 Q125 60 158 18" stroke="#7A9E7E" stroke-width="2" fill="none" stroke-linecap="round"/>
     <ellipse cx="92" cy="87" rx="22" ry="9" fill="#5B7A5F" opacity=".7" transform="rotate(-22 92 87)"/>
@@ -391,7 +359,6 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
       <div class="badge-float left">MARSEILLE 2026</div>
       <div class="badge-float right">בָּר מִצְוָה</div>
     </div>
-
     <div class="h-badge">✦ &nbsp; BAR-MITZVA &nbsp; ✦</div>
     <div class="h-heb">בָּר מִצְוָה</div>
     <div class="h-name">Nissim Rebibo</div>
@@ -407,13 +374,11 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
       <span>✦</span><span>VOIR L'INVITATION</span><span>↓</span>
     </button>
   </div>
-
   <div class="scroll-hint"><div class="scroll-line"></div></div>
 </section>
 
 <!-- ══ SECTION 2 : INVITATION ══ -->
 <section id="section-invite">
-
   <header class="inv-hero">
     <span class="inv-eyebrow reveal">Bar-Mitzva · Marseille · 5786</span>
     <span class="inv-heb reveal">בָּר מִצְוָה</span>
@@ -427,7 +392,6 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
   </header>
 
   <div class="cards-wrap">
-
     <!-- COUNTDOWN -->
     <div class="card">
       <div class="c-glow"></div>
@@ -501,7 +465,6 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
         <div class="cdg r"></div><div class="cdg g"></div><div class="cdg r"></div>
         <div class="cdl"></div>
       </div>
-
       <form id="rsvp-form" onsubmit="sendRSVP(event)">
         <div class="f-grp">
           <label class="f-lbl">Nom &amp; Prénom</label>
@@ -537,15 +500,12 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
           <span id="btn-send-txt">✦ &nbsp; CONFIRMER MA PRÉSENCE &nbsp; ✦</span>
         </button>
       </form>
-
       <div class="conf" id="conf">
         <span class="conf-icon">✨</span>
         <p class="conf-txt">Merci ! Votre réponse a bien été enregistrée.<br>À très bientôt à Marseille 🌟</p>
       </div>
     </div>
-
   </div>
-
   <footer>NISSIM REBIBO · BAR-MITZVA · MARSEILLE · 5786</footer>
 </section>
 
@@ -554,7 +514,6 @@ const CV=document.getElementById('cv'),ct=CV.getContext('2d');
 let W,H,T=0;
 function resize(){W=CV.width=window.innerWidth;H=CV.height=window.innerHeight}
 resize();window.addEventListener('resize',resize);
-
 const SUN={xr:.76,yr:.13};
 const WAVES=[
   {a:28,f:.007,s:.55,yo:.59,c1:'#0B3D6E',c2:'#0E5C9E'},
@@ -568,16 +527,13 @@ const WAVES=[
 const SPARKS=Array.from({length:150},()=>({x:Math.random(),y:.59+Math.random()*.41,r:.4+Math.random()*1.5,sp:.001+Math.random()*.002,ph:Math.random()*Math.PI*2}));
 const GULLS=Array.from({length:7},()=>({x:Math.random()*2000,y:0,spx:(.3+Math.random()*.5)*(Math.random()>.5?1:-1),ph:Math.random()*Math.PI*2,sz:5+Math.random()*7,yr:.1+Math.random()*.2}));
 const PETALS=Array.from({length:35},()=>({x:Math.random()*100,y:Math.random()*75,sp:.0004+Math.random()*.0005,drift:.15+Math.random()*.35,ph:Math.random()*Math.PI*2,rot:Math.random()*Math.PI*2,sz:1.5+Math.random()*2.5,al:.25+Math.random()*.35,col:Math.random()>.5?'rgba(255,229,128,.9)':'rgba(255,190,120,.8)'}));
-
 function wp(w,x,t){return Math.sin(x*w.f+t*w.s)*w.a+Math.sin(x*w.f*1.7+t*w.s*.65+1.3)*w.a*.35+Math.sin(x*w.f*.6+t*w.s*1.5+2.2)*w.a*.18}
-
 function drawSky(){
   const g=ct.createLinearGradient(0,0,0,H*.62);
   g.addColorStop(0,'#0B3D6E');g.addColorStop(.22,'#1565A8');g.addColorStop(.50,'#2A82C8');
   g.addColorStop(.75,'#5AAAD8');g.addColorStop(.90,'#9ACCDF');g.addColorStop(1,'#C8E8F0');
   ct.fillStyle=g;ct.fillRect(0,0,W,H*.62);
 }
-
 function drawSun(t){
   const sx=W*SUN.xr,sy=H*SUN.yr,sr=Math.min(W,H)*.046;
   const atm=ct.createRadialGradient(sx,sy,sr*.5,sx,sy,sr*13);
@@ -602,13 +558,11 @@ function drawSun(t){
   gl.addColorStop(0,'rgba(255,255,255,.65)');gl.addColorStop(1,'transparent');
   ct.fillStyle=gl;ct.beginPath();ct.arc(sx,sy,sr,0,Math.PI*2);ct.fill();
 }
-
 function drawMer(){
   const mg=ct.createLinearGradient(0,H*.57,0,H);
   mg.addColorStop(0,'#062840');mg.addColorStop(.4,'#041E30');mg.addColorStop(1,'#020D18');
   ct.fillStyle=mg;ct.fillRect(0,H*.57,W,H);
 }
-
 function drawSunRefl(t){
   const sx=W*SUN.xr,yb=H*WAVES[0].yo+wp(WAVES[0],sx,t);
   ct.save();
@@ -617,7 +571,6 @@ function drawSunRefl(t){
   ct.fillStyle=rg;const rw=W*.14;
   ct.beginPath();ct.moveTo(sx-rw*.28,yb);ct.lineTo(sx-rw,H);ct.lineTo(sx+rw,H);ct.lineTo(sx+rw*.28,yb);ct.closePath();ct.fill();ct.restore();
 }
-
 function drawWaves(t){
   WAVES.forEach((w,i)=>{
     const yb=H*w.yo;
@@ -632,7 +585,6 @@ function drawWaves(t){
     ct.strokeStyle=`rgba(180,230,255,${i===0?.22:i<3?.14:.06})`;ct.lineWidth=i===0?2:i<3?1.4:.7;ct.stroke();
   });
 }
-
 function drawSparkles(t){
   ct.save();ct.globalCompositeOperation='screen';
   SPARKS.forEach(s=>{
@@ -641,7 +593,6 @@ function drawSparkles(t){
     ct.globalAlpha=al;ct.fillStyle='#FFE580';ct.beginPath();ct.arc(s.x*W,s.y*H,s.r,0,Math.PI*2);ct.fill();
   });ct.restore();
 }
-
 function drawGulls(t){
   ct.save();
   GULLS.forEach(g=>{
@@ -652,7 +603,6 @@ function drawGulls(t){
     ct.beginPath();ct.moveTo(g.x-g.sz,y-flap);ct.quadraticCurveTo(g.x,y,g.x+g.sz,y-flap);ct.stroke();
   });ct.restore();
 }
-
 function drawPetals(t){
   ct.save();ct.globalCompositeOperation='screen';
   PETALS.forEach(p=>{
@@ -663,7 +613,6 @@ function drawPetals(t){
     ct.fillStyle=p.col;ct.beginPath();ct.ellipse(0,0,p.sz,p.sz*.55,0,0,Math.PI*2);ct.fill();ct.restore();
   });ct.restore();
 }
-
 function loop(ts){
   T=ts*.001;ct.clearRect(0,0,W,H);
   drawSky();drawSun(T);drawMer();drawSunRefl(T);drawWaves(T);drawSparkles(T);drawGulls(T);drawPetals(T);
@@ -679,12 +628,26 @@ if('ontouchstart' in window){CE.style.display='none';RE.style.display='none'}
 
 let musicStarted=false,playing=false;
 const audio=document.getElementById('audio'),musicBtn=document.getElementById('music-btn'),eq=document.getElementById('eq');
-function fadeInAudio(){audio.volume=0;audio.play().catch(()=>{});let v=0;const iv=setInterval(()=>{v=Math.min(1,v+.02);audio.volume=v;if(v>=1)clearInterval(iv)},60);playing=true;musicBtn.classList.add('playing');musicBtn.setAttribute('data-tip','PAUSE');eq.classList.remove('paused')}
-function fadeOutAudio(){const iv=setInterval(()=>{audio.volume=Math.max(0,audio.volume-.02);if(audio.volume<=0){audio.pause();clearInterval(iv)}},60)}
-musicBtn.addEventListener('click',()=>{if(!playing){if(!musicStarted)musicStarted=true;fadeInAudio()}else{fadeOutAudio();playing=false;musicBtn.classList.remove('playing');musicBtn.setAttribute('data-tip','MUSIQUE');eq.classList.add('paused')}});
+
+function fadeInAudio(){
+  audio.volume=0;audio.play().catch(()=>{});
+  let v=0;const iv=setInterval(()=>{v=Math.min(1,v+.02);audio.volume=v;if(v>=1)clearInterval(iv)},60);
+  playing=true;musicBtn.classList.add('playing');musicBtn.setAttribute('data-tip','PAUSE');eq.classList.remove('paused');
+}
+function fadeOutAudio(){
+  const iv=setInterval(()=>{audio.volume=Math.max(0,audio.volume-.02);if(audio.volume<=0){audio.pause();clearInterval(iv)}},60);
+}
+musicBtn.addEventListener('click',()=>{
+  if(!playing){if(!musicStarted)musicStarted=true;fadeInAudio()}
+  else{fadeOutAudio();playing=false;musicBtn.classList.remove('playing');musicBtn.setAttribute('data-tip','MUSIQUE');eq.classList.add('paused')}
+});
 audio.addEventListener('pause',()=>{if(playing)setTimeout(()=>{if(playing)audio.play().catch(()=>{})},300)});
 
-function enterInvitation(){if(!musicStarted){musicStarted=true;fadeInAudio()}setTimeout(()=>document.getElementById('section-invite').scrollIntoView({behavior:'smooth'}),200)}
+/* ✅ MODIFICATION PRINCIPALE : la musique démarre au clic sur "VOIR L'INVITATION" */
+function enterInvitation(){
+  if(!musicStarted){musicStarted=true;fadeInAudio();}
+  setTimeout(()=>document.getElementById('section-invite').scrollIntoView({behavior:'smooth'}),200);
+}
 
 const TARGET=new Date('August 20, 2026 09:15:00').getTime();
 function tick(){const gap=TARGET-Date.now();if(gap<=0){document.getElementById('cd').style.display='none';document.getElementById('mz').style.display='block';return}const S=1000,M=S*60,Hr=M*60,D=Hr*24;document.getElementById('days').textContent=String(Math.floor(gap/D)).padStart(2,'0');document.getElementById('hours').textContent=String(Math.floor((gap%D)/Hr)).padStart(2,'0');document.getElementById('mins').textContent=String(Math.floor((gap%Hr)/M)).padStart(2,'0');document.getElementById('secs').textContent=String(Math.floor((gap%M)/S)).padStart(2,'0')}
