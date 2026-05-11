@@ -18,17 +18,12 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);overflow-x:hidden}
-/* ─── CURSEUR ─── */
 .cur{position:fixed;width:8px;height:8px;border-radius:50%;background:var(--sun);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen}
 .cur-r{position:fixed;width:34px;height:34px;border-radius:50%;border:1px solid rgba(245,166,35,.4);pointer-events:none;z-index:9998;transform:translate(-50%,-50%)}
-/* ─── CANVAS ─── */
 #cv{position:fixed;inset:0;z-index:0;width:100%;height:100%}
 .grain{position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.03;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size:160px}
-/* ═══════════════════════
-   SECTION 1 — HERO
-═══════════════════════ */
 #section-photo{
   position:relative;z-index:10;
   width:100%;height:100vh;
@@ -44,10 +39,9 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
   text-align:center;padding:20px;
   display:flex;flex-direction:column;align-items:center;
 }
-/* ── PHOTO FRAME ── */
 .nissim-wrap{
   position:relative;
-  margin-bottom:22px;
+  margin-bottom:10px;
   opacity:0;animation:fadeUp 1.2s ease .3s forwards;
 }
 .nissim-wrap::before{
@@ -89,7 +83,18 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
 .badge-float.right{right:-78px;top:56%;animation:bfR 4s ease-in-out infinite .5s}
 @keyframes bfL{0%,100%{transform:rotate(-8deg) translateY(0)}50%{transform:rotate(-8deg) translateY(-6px)}}
 @keyframes bfR{0%,100%{transform:rotate(8deg) translateY(0)}50%{transform:rotate(8deg) translateY(-6px)}}
-/* ── TEXTE HERO ── */
+
+.h-bseyata{
+  font-family:serif;
+  font-size:clamp(1.1rem,4vw,1.6rem);
+  color:var(--gold2);
+  letter-spacing:3px;
+  opacity:0;animation:fadeUp .9s ease .85s forwards;
+  margin-bottom:12px;
+  text-shadow:0 0 20px rgba(200,169,110,.5);
+  direction:rtl;
+}
+
 .h-badge{
   font-family:'Cinzel',serif;font-size:.48rem;letter-spacing:9px;color:var(--sun);
   opacity:0;animation:fadeUp .8s ease .9s forwards;
@@ -116,11 +121,25 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
 .h-orn-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(245,166,35,.6),transparent);max-width:80px}
 .h-orn-gem{width:6px;height:6px;background:var(--terra);transform:rotate(45deg);box-shadow:0 0 10px rgba(200,75,49,.8)}
 .h-orn-dot{width:4px;height:4px;background:var(--sun);transform:rotate(45deg)}
+
 .h-date{
-  font-family:'Cinzel',serif;font-size:.54rem;letter-spacing:6px;
-  color:rgba(255,255,255,.6);
+  font-family:'Cinzel',serif;
+  font-size:clamp(.85rem,3.5vw,1.35rem);
+  letter-spacing:5px;
+  font-weight:600;
+  color:#ffffff;
+  text-shadow:
+    0 0 28px rgba(245,166,35,.9),
+    0 0 55px rgba(245,166,35,.5),
+    0 2px 8px rgba(0,0,0,.8);
+  background:linear-gradient(135deg,rgba(200,75,49,.22),rgba(245,166,35,.14));
+  border:1px solid rgba(245,166,35,.45);
+  border-radius:50px;
+  padding:10px 28px;
   opacity:0;animation:fadeUp .9s ease 1.38s forwards;margin-bottom:28px;
+  backdrop-filter:blur(10px);
 }
+
 #btn-enter{
   position:relative;overflow:hidden;
   display:inline-flex;align-items:center;justify-content:center;gap:12px;
@@ -136,7 +155,6 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
 #btn-enter:hover{border-color:transparent;color:white;box-shadow:0 20px 60px rgba(200,75,49,.4)}
 #btn-enter:hover::before{opacity:1}
 #btn-enter span{position:relative;z-index:1}
-/* ── BOTANIQUES SVG ── */
 .botanical{position:absolute;z-index:2;pointer-events:none}
 .botanical.bl{bottom:8%;left:0;width:min(190px,25vw);opacity:.42;transform-origin:bottom left}
 .botanical.br{bottom:6%;right:0;width:min(190px,25vw);opacity:.42;transform:scaleX(-1);transform-origin:bottom right}
@@ -145,9 +163,6 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
 .scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0;animation:fadeUp .6s ease 2.4s forwards}
 .scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,transparent,rgba(245,166,35,.5));animation:sPulse 2s ease-in-out infinite}
 @keyframes sPulse{0%,100%{opacity:.3}50%{opacity:1}}
-/* ═══════════════════════
-   SECTION 2 — INVITATION
-═══════════════════════ */
 #section-invite{
   position:relative;z-index:10;
   min-height:100vh;padding:80px 20px 100px;
@@ -177,7 +192,6 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
 .sg{width:6px;height:6px;transform:rotate(45deg);box-shadow:0 0 8px rgba(200,75,49,.7)}
 .sg.r{background:var(--terra)}.sg.g{background:var(--gold)}.sg.b{background:var(--azure2)}
 .sl{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(245,166,35,.4),transparent)}
-/* ─── CARDS ─── */
 .cards-wrap{display:flex;flex-direction:column;align-items:center;gap:26px;width:100%;max-width:460px;position:relative;z-index:1}
 .card{
   width:100%;border-radius:24px;padding:40px 28px;
@@ -223,7 +237,6 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
 .btn-nav:hover{color:white;border-color:transparent;box-shadow:0 10px 30px rgba(200,75,49,.3)}
 .btn-nav:hover::before{opacity:1}
 .btn-nav span{position:relative;z-index:1}
-/* ─── COUNTDOWN ─── */
 .countdown{display:flex;align-items:stretch;justify-content:center;gap:8px;margin:26px 0 4px}
 .tb{flex:1;text-align:center;max-width:72px}
 .tbox{background:rgba(0,0,0,.5);border:1px solid rgba(200,75,49,.2);border-radius:12px;padding:12px 4px 10px;margin-bottom:6px;position:relative;overflow:hidden}
@@ -232,14 +245,23 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
 .tlbl{font-family:'Cinzel',serif;font-size:.34rem;letter-spacing:3px;color:var(--terra2)}
 .tsep{font-family:'Cinzel',serif;font-size:1rem;color:rgba(200,75,49,.4);align-self:center;margin-bottom:14px;width:14px;text-align:center;flex-shrink:0}
 #mz{display:none;font-family:'Great Vibes',cursive;font-size:2.8rem;color:var(--sun);margin:18px 0;text-shadow:0 0 40px rgba(245,166,35,.5)}
-/* ─── RSVP FORM ─── */
+.card-chabat{border-color:rgba(200,169,110,.28) !important;}
+.card-chabat::before{background:linear-gradient(90deg,var(--gold),var(--sun2),var(--gold2),var(--sun2),var(--gold)) !important;}
+.chabat-row{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid rgba(200,169,110,.1)}
+.chabat-row:last-child{border-bottom:none}
+.chabat-dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--sun));flex-shrink:0;margin-top:6px;box-shadow:0 0 8px rgba(245,166,35,.5)}
+.chabat-txt{flex:1}
+.chabat-when{font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:4px;color:var(--sun);display:block;margin-bottom:4px}
+.chabat-detail{font-size:1rem;color:rgba(255,255,255,.7);line-height:1.8;font-style:italic}
+.chabat-detail strong{font-style:normal;color:white}
+.chabat-lieu{display:block;color:var(--gold2);font-size:.92rem;margin-top:3px}
 .f-grp{margin-top:18px;text-align:left}
 .f-lbl{font-family:'Cinzel',serif;font-size:.48rem;letter-spacing:5px;color:var(--terra2);display:block;margin-bottom:9px}
 .f-inp{width:100%;background:rgba(0,0,0,.45);border:1px solid rgba(200,75,49,.2);border-radius:12px;padding:14px 18px;color:white;font-family:'Cormorant Garamond',serif;font-size:1.05rem;outline:none;transition:border-color .3s,box-shadow .3s;-webkit-appearance:none;appearance:none}
 .f-inp::placeholder{color:rgba(255,255,255,.3)}
 .f-inp:focus{border-color:var(--sun);box-shadow:0 0 0 3px rgba(245,166,35,.12)}
 .nb-wrap{max-height:0;overflow:hidden;opacity:0;transition:max-height .5s cubic-bezier(.4,0,.2,1),opacity .4s,margin .4s;margin-top:0}
-.nb-wrap.open{max-height:120px;opacity:1;margin-top:16px}
+.nb-wrap.open{max-height:160px;opacity:1;margin-top:16px}
 .radio-group{display:flex;gap:12px}
 .radio-opt{flex:1;background:rgba(0,0,0,.4);border:1px solid rgba(200,75,49,.2);border-radius:12px;padding:14px 10px;text-align:center;cursor:pointer;font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:4px;color:rgba(255,255,255,.5);transition:all .3s;position:relative}
 .radio-opt input{position:absolute;opacity:0;width:0;height:0}
@@ -258,9 +280,7 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
 .conf-icon{font-size:3.5rem;display:block;animation:popIn .7s cubic-bezier(.175,.885,.32,1.275)}
 .conf-txt{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:4px;color:var(--gold2);margin-top:18px;line-height:2.4}
 @keyframes popIn{from{transform:scale(0) rotate(-15deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
-/* ─── FOOTER ─── */
 footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba(200,75,49,.25);text-align:center;margin-top:30px;padding-bottom:10px;position:relative;z-index:1}
-/* ─── MUSIQUE ─── */
 #music-btn{position:fixed;bottom:28px;right:24px;z-index:200;width:54px;height:54px;border-radius:50%;border:1px solid rgba(200,75,49,.35);background:linear-gradient(145deg,rgba(25,12,8,.92),rgba(14,10,20,.96));backdrop-filter:blur(16px);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(0,0,0,.6);transition:border-color .3s,box-shadow .3s,transform .2s;overflow:hidden}
 #music-btn::before{content:'';position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(245,166,35,.14),transparent 70%)}
 #music-btn:hover{border-color:rgba(200,75,49,.6);box-shadow:0 10px 40px rgba(0,0,0,.7),0 0 20px rgba(200,75,49,.15);transform:scale(1.06)}
@@ -276,7 +296,6 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
 .eq-bar:nth-child(4){height:14px;animation:eq4 .7s ease-in-out infinite alternate}
 @keyframes eq1{to{height:16px}}@keyframes eq2{to{height:8px}}@keyframes eq3{to{height:18px}}@keyframes eq4{to{height:6px}}
 .eq.paused .eq-bar{animation:none;height:4px!important;opacity:.4}
-/* ─── ANIMATIONS ─── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 .spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(245,166,35,.3);border-top-color:var(--sun);border-radius:50%;animation:spin .8s linear infinite;vertical-align:middle;margin-right:8px}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -286,6 +305,19 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
   .badge-float{display:none}
   .botanical.bl,.botanical.br{width:min(140px,30vw)}
 }
+/* ── FORM LISIBILITÉ ── */
+.f-lbl{font-size:.58rem !important;letter-spacing:4px}
+.f-inp,.f-textarea{font-size:1.18rem !important}
+.radio-opt{font-size:.6rem !important;letter-spacing:3px}
+.f-section-title{
+  font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:5px;
+  color:var(--sun);margin-top:26px;margin-bottom:4px;
+  padding:10px 14px;
+  background:linear-gradient(135deg,rgba(200,75,49,.12),rgba(245,166,35,.08));
+  border-left:2px solid var(--terra);border-radius:0 8px 8px 0;
+}
+.nb-duo{display:flex;gap:12px}
+.nb-col{flex:1}
 </style>
 </head>
 <body>
@@ -293,11 +325,7 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
 <div class="cur-r" id="R"></div>
 <canvas id="cv"></canvas>
 <div class="grain"></div>
-
-<!-- ✅ MUSIQUE INTÉGRÉE EN BASE64 DANS LE FICHIER SAUVEGARDÉ -->
-<!-- Si tu copie-colles ce code, remplace musique.mp3 par ton fichier -->
 <audio id="audio" src="musique.mp3" loop preload="auto"></audio>
-
 <button id="music-btn" data-tip="MUSIQUE" aria-label="Musique">
   <div class="eq paused" id="eq">
     <div class="eq-bar"></div><div class="eq-bar"></div>
@@ -305,7 +333,6 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
   </div>
 </button>
 
-<!-- ══ SECTION 1 : HERO ══ -->
 <section id="section-photo">
   <svg class="botanical bl" viewBox="0 0 200 420" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M28 410 Q55 320 85 265 Q115 210 95 155 Q75 100 108 55" stroke="#7A9E7E" stroke-width="2.5" fill="none" stroke-linecap="round"/>
@@ -359,6 +386,7 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
       <div class="badge-float left">MARSEILLE 2026</div>
       <div class="badge-float right">בָּר מִצְוָה</div>
     </div>
+    <div class="h-bseyata">בסיד</div>
     <div class="h-badge">✦ &nbsp; BAR-MITZVA &nbsp; ✦</div>
     <div class="h-heb">בָּר מִצְוָה</div>
     <div class="h-name">Nissim Rebibo</div>
@@ -369,7 +397,7 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
       <div class="h-orn-dot"></div>
       <div class="h-orn-line"></div>
     </div>
-    <div class="h-date">MARSEILLE · 20 AOÛT 2026</div>
+    <div class="h-date">✦ &nbsp; MARSEILLE · 20 AOÛT 2026 &nbsp; ✦</div>
     <button id="btn-enter" onclick="enterInvitation()">
       <span>✦</span><span>VOIR L'INVITATION</span><span>↓</span>
     </button>
@@ -377,7 +405,6 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
   <div class="scroll-hint"><div class="scroll-line"></div></div>
 </section>
 
-<!-- ══ SECTION 2 : INVITATION ══ -->
 <section id="section-invite">
   <header class="inv-hero">
     <span class="inv-eyebrow reveal">Bar-Mitzva · Marseille · 5786</span>
@@ -454,6 +481,38 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
       </a>
     </div>
 
+    <!-- CHABAT HATAN -->
+    <div class="card card-chabat">
+      <div class="c-glow"></div>
+      <span class="c-icon">✡️</span>
+      <span class="c-eye">Week-end Chabat Hatan</span>
+      <h2 class="c-title">שַׁבָּת חָתָן</h2>
+      <div class="c-div">
+        <div class="cdl"></div>
+        <div class="cdg g"></div><div class="cdg r"></div><div class="cdg g"></div>
+        <div class="cdl"></div>
+      </div>
+      <div class="chabat-row">
+        <div class="chabat-dot"></div>
+        <div class="chabat-txt">
+          <span class="chabat-when">Vendredi Soir</span>
+          <span class="chabat-detail"><strong>Repas du Chabat Hatan</strong></span>
+          <span class="chabat-lieu">Synagogue Haya Mouchka<br>18 Rue Liandier · 13008 Marseille</span>
+        </div>
+      </div>
+      <div class="chabat-row">
+        <div class="chabat-dot"></div>
+        <div class="chabat-txt">
+          <span class="chabat-when">Samedi Midi</span>
+          <span class="chabat-detail"><strong>Repas du Chabat Hatan</strong></span>
+          <span class="chabat-lieu">Synagogue Haya Mouchka<br>18 Rue Liandier · 13008 Marseille</span>
+        </div>
+      </div>
+      <a href="https://waze.com/ul?q=18+Rue+Liandier+13008+Marseille" class="btn-nav" target="_blank" style="margin-top:18px">
+        <span>🚗 &nbsp;ITINÉRAIRE WAZE</span>
+      </a>
+    </div>
+
     <!-- RSVP -->
     <div class="card">
       <div class="c-glow"></div>
@@ -470,28 +529,89 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
           <label class="f-lbl">Nom &amp; Prénom</label>
           <input class="f-inp" id="f-nom" type="text" placeholder="Votre nom complet" required>
         </div>
+
+        <div class="f-section-title">🕍 Mise des Téfilines</div>
         <div class="f-grp">
-          <label class="f-lbl">Présence · Mise des Téfilines</label>
+          <label class="f-lbl">Présence</label>
           <div class="radio-group">
             <label class="radio-opt selected" id="opt-tef-oui"><input type="radio" name="tef" value="oui" checked onchange="handleRadio('tef','oui')"><span>OUI</span></label>
             <label class="radio-opt" id="opt-tef-non"><input type="radio" name="tef" value="non" onchange="handleRadio('tef','non')"><span>NON</span></label>
           </div>
         </div>
         <div class="nb-wrap open" id="nb-tef">
-          <label class="f-lbl">Nombre de personnes · Téfilines</label>
-          <input class="f-inp" id="f-nb-tef" type="number" min="1" max="50" value="1">
+          <div class="nb-duo">
+            <div class="nb-col">
+              <label class="f-lbl">Adultes</label>
+              <input class="f-inp" id="f-nb-tef-adultes" type="number" min="0" max="50" value="1" placeholder="0">
+            </div>
+            <div class="nb-col">
+              <label class="f-lbl">Enfants</label>
+              <input class="f-inp" id="f-nb-tef-enfants" type="number" min="0" max="50" value="0" placeholder="0">
+            </div>
+          </div>
         </div>
+
+        <div class="f-section-title">🎉 Soirée Or Aviv</div>
         <div class="f-grp">
-          <label class="f-lbl">Présence · Soirée Or Aviv</label>
+          <label class="f-lbl">Présence</label>
           <div class="radio-group">
             <label class="radio-opt selected" id="opt-soir-oui"><input type="radio" name="soir" value="oui" checked onchange="handleRadio('soir','oui')"><span>OUI</span></label>
             <label class="radio-opt" id="opt-soir-non"><input type="radio" name="soir" value="non" onchange="handleRadio('soir','non')"><span>NON</span></label>
           </div>
         </div>
         <div class="nb-wrap open" id="nb-soir">
-          <label class="f-lbl">Nombre de personnes · Soirée</label>
-          <input class="f-inp" id="f-nb-soir" type="number" min="1" max="50" value="1">
+          <div class="nb-duo">
+            <div class="nb-col">
+              <label class="f-lbl">Adultes</label>
+              <input class="f-inp" id="f-nb-soir-adultes" type="number" min="0" max="50" value="1" placeholder="0">
+            </div>
+            <div class="nb-col">
+              <label class="f-lbl">Enfants</label>
+              <input class="f-inp" id="f-nb-soir-enfants" type="number" min="0" max="50" value="0" placeholder="0">
+            </div>
+          </div>
         </div>
+
+        <div class="f-section-title">✡️ Chabat Hatan</div>
+        <div class="f-grp">
+          <label class="f-lbl">Vendredi Soir</label>
+          <div class="radio-group">
+            <label class="radio-opt selected" id="opt-chab-ven-oui"><input type="radio" name="chab-ven" value="oui" checked onchange="handleRadio('chab-ven','oui')"><span>OUI</span></label>
+            <label class="radio-opt" id="opt-chab-ven-non"><input type="radio" name="chab-ven" value="non" onchange="handleRadio('chab-ven','non')"><span>NON</span></label>
+          </div>
+        </div>
+        <div class="nb-wrap open" id="nb-chab-ven">
+          <div class="nb-duo">
+            <div class="nb-col">
+              <label class="f-lbl">Adultes</label>
+              <input class="f-inp" id="f-nb-chab-ven-adultes" type="number" min="0" max="50" value="1" placeholder="0">
+            </div>
+            <div class="nb-col">
+              <label class="f-lbl">Enfants</label>
+              <input class="f-inp" id="f-nb-chab-ven-enfants" type="number" min="0" max="50" value="0" placeholder="0">
+            </div>
+          </div>
+        </div>
+        <div class="f-grp">
+          <label class="f-lbl">Samedi Midi</label>
+          <div class="radio-group">
+            <label class="radio-opt selected" id="opt-chab-sam-oui"><input type="radio" name="chab-sam" value="oui" checked onchange="handleRadio('chab-sam','oui')"><span>OUI</span></label>
+            <label class="radio-opt" id="opt-chab-sam-non"><input type="radio" name="chab-sam" value="non" onchange="handleRadio('chab-sam','non')"><span>NON</span></label>
+          </div>
+        </div>
+        <div class="nb-wrap open" id="nb-chab-sam">
+          <div class="nb-duo">
+            <div class="nb-col">
+              <label class="f-lbl">Adultes</label>
+              <input class="f-inp" id="f-nb-chab-sam-adultes" type="number" min="0" max="50" value="1" placeholder="0">
+            </div>
+            <div class="nb-col">
+              <label class="f-lbl">Enfants</label>
+              <input class="f-inp" id="f-nb-chab-sam-enfants" type="number" min="0" max="50" value="0" placeholder="0">
+            </div>
+          </div>
+        </div>
+
         <div class="f-grp">
           <label class="f-lbl">Message pour Nissim 💙</label>
           <textarea class="f-textarea" id="f-msg" placeholder="Votre message, bénédiction…" rows="3"></textarea>
@@ -628,26 +748,12 @@ if('ontouchstart' in window){CE.style.display='none';RE.style.display='none'}
 
 let musicStarted=false,playing=false;
 const audio=document.getElementById('audio'),musicBtn=document.getElementById('music-btn'),eq=document.getElementById('eq');
-
-function fadeInAudio(){
-  audio.volume=0;audio.play().catch(()=>{});
-  let v=0;const iv=setInterval(()=>{v=Math.min(1,v+.02);audio.volume=v;if(v>=1)clearInterval(iv)},60);
-  playing=true;musicBtn.classList.add('playing');musicBtn.setAttribute('data-tip','PAUSE');eq.classList.remove('paused');
-}
-function fadeOutAudio(){
-  const iv=setInterval(()=>{audio.volume=Math.max(0,audio.volume-.02);if(audio.volume<=0){audio.pause();clearInterval(iv)}},60);
-}
-musicBtn.addEventListener('click',()=>{
-  if(!playing){if(!musicStarted)musicStarted=true;fadeInAudio()}
-  else{fadeOutAudio();playing=false;musicBtn.classList.remove('playing');musicBtn.setAttribute('data-tip','MUSIQUE');eq.classList.add('paused')}
-});
+function fadeInAudio(){audio.volume=0;audio.play().catch(()=>{});let v=0;const iv=setInterval(()=>{v=Math.min(1,v+.02);audio.volume=v;if(v>=1)clearInterval(iv)},60);playing=true;musicBtn.classList.add('playing');musicBtn.setAttribute('data-tip','PAUSE');eq.classList.remove('paused')}
+function fadeOutAudio(){const iv=setInterval(()=>{audio.volume=Math.max(0,audio.volume-.02);if(audio.volume<=0){audio.pause();clearInterval(iv)}},60)}
+musicBtn.addEventListener('click',()=>{if(!playing){if(!musicStarted)musicStarted=true;fadeInAudio()}else{fadeOutAudio();playing=false;musicBtn.classList.remove('playing');musicBtn.setAttribute('data-tip','MUSIQUE');eq.classList.add('paused')}});
 audio.addEventListener('pause',()=>{if(playing)setTimeout(()=>{if(playing)audio.play().catch(()=>{})},300)});
 
-/* ✅ MODIFICATION PRINCIPALE : la musique démarre au clic sur "VOIR L'INVITATION" */
-function enterInvitation(){
-  if(!musicStarted){musicStarted=true;fadeInAudio();}
-  setTimeout(()=>document.getElementById('section-invite').scrollIntoView({behavior:'smooth'}),200);
-}
+function enterInvitation(){if(!musicStarted){musicStarted=true;fadeInAudio();}setTimeout(()=>document.getElementById('section-invite').scrollIntoView({behavior:'smooth'}),200)}
 
 const TARGET=new Date('August 20, 2026 09:15:00').getTime();
 function tick(){const gap=TARGET-Date.now();if(gap<=0){document.getElementById('cd').style.display='none';document.getElementById('mz').style.display='block';return}const S=1000,M=S*60,Hr=M*60,D=Hr*24;document.getElementById('days').textContent=String(Math.floor(gap/D)).padStart(2,'0');document.getElementById('hours').textContent=String(Math.floor((gap%D)/Hr)).padStart(2,'0');document.getElementById('mins').textContent=String(Math.floor((gap%Hr)/M)).padStart(2,'0');document.getElementById('secs').textContent=String(Math.floor((gap%M)/S)).padStart(2,'0')}
@@ -656,11 +762,40 @@ setInterval(tick,1000);tick();
 function revealAll(){document.querySelectorAll('.reveal').forEach((el,i)=>setTimeout(()=>el.classList.add('vis'),i*120));document.querySelectorAll('.card').forEach((c,i)=>{new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)setTimeout(()=>c.classList.add('vis'),i*130)})},{threshold:.06}).observe(c)})}
 new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)revealAll()})},{threshold:.05}).observe(document.getElementById('section-invite'));
 
-function handleRadio(group,val){const oui=document.getElementById('opt-'+group+'-oui'),non=document.getElementById('opt-'+group+'-non'),nb=document.getElementById('nb-'+group);if(val==='oui'){oui.classList.add('selected');non.classList.remove('selected');nb.classList.add('open');const inp=nb.querySelector('input');if(inp&&(!inp.value||inp.value<1))inp.value=1}else{non.classList.add('selected');oui.classList.remove('selected');nb.classList.remove('open');const inp=nb.querySelector('input');if(inp)inp.value=0}}
+function handleRadio(group,val){const oui=document.getElementById('opt-'+group+'-oui'),non=document.getElementById('opt-'+group+'-non'),nb=document.getElementById('nb-'+group);if(val==='oui'){oui.classList.add('selected');non.classList.remove('selected');nb.classList.add('open');const adultes=nb.querySelector('[id$="-adultes"]');if(adultes&&(!adultes.value||adultes.value<1))adultes.value=1}else{non.classList.add('selected');oui.classList.remove('selected');nb.classList.remove('open');nb.querySelectorAll('input[type=number]').forEach(i=>i.value=0)}}
 document.querySelectorAll('.radio-opt').forEach(opt=>{opt.addEventListener('click',function(){const inp=this.querySelector('input');if(inp){inp.checked=true;inp.dispatchEvent(new Event('change'))}})});
 
 const SCRIPT_URL='https://script.google.com/macros/s/VOTRE_SCRIPT_ID/exec';
-async function sendRSVP(e){e.preventDefault();const btn=document.getElementById('btn-send'),btnTxt=document.getElementById('btn-send-txt'),nom=document.getElementById('f-nom').value.trim(),tefVal=document.querySelector('input[name="tef"]:checked')?.value||'non',soirVal=document.querySelector('input[name="soir"]:checked')?.value||'non',nbTef=tefVal==='oui'?parseInt(document.getElementById('f-nb-tef').value)||1:0,nbSoir=soirVal==='oui'?parseInt(document.getElementById('f-nb-soir').value)||1:0,msg=document.getElementById('f-msg').value.trim();if(!nom){document.getElementById('f-nom').focus();return}btn.disabled=true;btnTxt.innerHTML='<span class="spinner"></span> ENVOI EN COURS…';const params=new URLSearchParams({nom,tef:tefVal==='oui'?'Oui':'Non',nb_tef:nbTef,soir:soirVal==='oui'?'Oui':'Non',nb_soir:nbSoir,message:msg,timestamp:new Date().toLocaleString('fr-FR')});try{await fetch(SCRIPT_URL+'?'+params.toString(),{method:'GET',mode:'no-cors'})}catch{}showConfirmation()}
+async function sendRSVP(e){
+  e.preventDefault();
+  const btn=document.getElementById('btn-send'),btnTxt=document.getElementById('btn-send-txt');
+  const nom=document.getElementById('f-nom').value.trim();
+  if(!nom){document.getElementById('f-nom').focus();return}
+  const v=(id)=>parseInt(document.getElementById(id)?.value)||0;
+  const chk=(name)=>document.querySelector('input[name="'+name+'"]:checked')?.value||'non';
+  const tefVal=chk('tef'),soirVal=chk('soir'),chabVenVal=chk('chab-ven'),chabSamVal=chk('chab-sam');
+  const msg=document.getElementById('f-msg').value.trim();
+  btn.disabled=true;btnTxt.innerHTML='<span class="spinner"></span> ENVOI EN COURS…';
+  const params=new URLSearchParams({
+    nom,
+    tef:tefVal==='oui'?'Oui':'Non',
+    tef_adultes:tefVal==='oui'?v('f-nb-tef-adultes'):0,
+    tef_enfants:tefVal==='oui'?v('f-nb-tef-enfants'):0,
+    soir:soirVal==='oui'?'Oui':'Non',
+    soir_adultes:soirVal==='oui'?v('f-nb-soir-adultes'):0,
+    soir_enfants:soirVal==='oui'?v('f-nb-soir-enfants'):0,
+    chab_ven:chabVenVal==='oui'?'Oui':'Non',
+    chab_ven_adultes:chabVenVal==='oui'?v('f-nb-chab-ven-adultes'):0,
+    chab_ven_enfants:chabVenVal==='oui'?v('f-nb-chab-ven-enfants'):0,
+    chab_sam:chabSamVal==='oui'?'Oui':'Non',
+    chab_sam_adultes:chabSamVal==='oui'?v('f-nb-chab-sam-adultes'):0,
+    chab_sam_enfants:chabSamVal==='oui'?v('f-nb-chab-sam-enfants'):0,
+    message:msg,
+    timestamp:new Date().toLocaleString('fr-FR')
+  });
+  try{await fetch(SCRIPT_URL+'?'+params.toString(),{method:'GET',mode:'no-cors'})}catch{}
+  showConfirmation()
+}
 function showConfirmation(){const form=document.getElementById('rsvp-form');form.style.transition='opacity .4s';form.style.opacity='0';setTimeout(()=>{form.style.display='none';document.getElementById('conf').style.display='block'},400)}
 </script>
 </body>
