@@ -144,6 +144,25 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
 #btn-enter:hover{border-color:transparent;color:white;box-shadow:0 20px 60px rgba(200,75,49,.4)}
 #btn-enter:hover::before{opacity:1}
 #btn-enter span{position:relative;z-index:1}
+
+/* ── Language toggle button ── */
+#btn-lang{
+  position:relative;overflow:hidden;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:11px 30px;
+  background:rgba(27,107,168,.1);border:1px solid rgba(74,144,217,.35);
+  border-radius:60px;
+  font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:4px;color:rgba(200,220,255,.75);
+  cursor:pointer;
+  margin-top:12px;
+  opacity:0;animation:fadeUp .9s ease 1.85s forwards;
+  transition:box-shadow .4s,border-color .4s,color .4s;backdrop-filter:blur(14px);
+}
+#btn-lang::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--azure),var(--azure2));opacity:0;transition:opacity .45s;z-index:0}
+#btn-lang:hover{border-color:transparent;color:white;box-shadow:0 14px 40px rgba(27,107,168,.35)}
+#btn-lang:hover::before{opacity:1}
+#btn-lang span{position:relative;z-index:1}
+
 .botanical{position:absolute;z-index:2;pointer-events:none}
 .botanical.bl{bottom:8%;left:0;width:min(190px,25vw);opacity:.42;transform-origin:bottom left}
 .botanical.br{bottom:6%;right:0;width:min(190px,25vw);opacity:.42;transform:scaleX(-1);transform-origin:bottom right}
@@ -320,7 +339,6 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
     <div class="eq-bar"></div><div class="eq-bar"></div>
   </div>
 </button>
-
 <section id="section-photo">
   <svg class="botanical bl" viewBox="0 0 200 420" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M28 410 Q55 320 85 265 Q115 210 95 155 Q75 100 108 55" stroke="#7A9E7E" stroke-width="2.5" fill="none" stroke-linecap="round"/>
@@ -360,7 +378,6 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
     <ellipse cx="62" cy="118" rx="20" ry="8" fill="#5B7A5F" opacity=".6" transform="rotate(12 62 118)"/>
     <circle cx="87" cy="76" r="7" fill="#F5A623" opacity=".55"/>
   </svg>
-
   <div class="photo-content">
     <div class="nissim-wrap">
       <span class="star-dec">✦</span>
@@ -385,14 +402,16 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
       <div class="h-orn-dot"></div>
       <div class="h-orn-line"></div>
     </div>
-    <div class="h-date">✦ &nbsp; MARSEILLE · 20 AOÛT 2026 &nbsp; ✦</div>
+    <div class="h-date" data-i18n="date">✦ &nbsp; MARSEILLE · 20 AOÛT 2026 &nbsp; ✦</div>
     <button id="btn-enter" onclick="enterInvitation()">
-      <span>✦</span><span>VOIR L'INVITATION</span><span>↓</span>
+      <span>✦</span><span data-i18n="btn-enter">VOIR L'INVITATION</span><span>↓</span>
+    </button>
+    <button id="btn-lang" onclick="toggleLang()">
+      <span data-i18n="btn-lang">🇬🇧 ENGLISH</span>
     </button>
   </div>
   <div class="scroll-hint"><div class="scroll-line"></div></div>
 </section>
-
 <section id="section-invite">
   <header class="inv-hero">
     <span class="inv-eyebrow reveal">Bar-Mitzva · Marseille · 5786</span>
@@ -405,35 +424,35 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
       <div class="sl"></div>
     </div>
   </header>
-
   <div class="cards-wrap">
+    <!-- Card 1 : Countdown -->
     <div class="card">
       <div class="c-glow"></div>
-      <span class="c-eye">Compte à rebours</span>
+      <span class="c-eye" data-i18n="cd-eye">Compte à rebours</span>
       <div class="c-heb"> ! עוד מעט</div>
       <div class="countdown" id="cd">
-        <div class="tb"><div class="tbox"><span class="tnum" id="days">00</span></div><span class="tlbl">JOURS</span></div>
+        <div class="tb"><div class="tbox"><span class="tnum" id="days">00</span></div><span class="tlbl" data-i18n="days-lbl">JOURS</span></div>
         <div class="tsep">·</div>
-        <div class="tb"><div class="tbox"><span class="tnum" id="hours">00</span></div><span class="tlbl">HEURES</span></div>
+        <div class="tb"><div class="tbox"><span class="tnum" id="hours">00</span></div><span class="tlbl" data-i18n="hours-lbl">HEURES</span></div>
         <div class="tsep">·</div>
-        <div class="tb"><div class="tbox"><span class="tnum" id="mins">00</span></div><span class="tlbl">MIN</span></div>
+        <div class="tb"><div class="tbox"><span class="tnum" id="mins">00</span></div><span class="tlbl" data-i18n="mins-lbl">MIN</span></div>
         <div class="tsep">·</div>
-        <div class="tb"><div class="tbox"><span class="tnum" id="secs">00</span></div><span class="tlbl">SEC</span></div>
+        <div class="tb"><div class="tbox"><span class="tnum" id="secs">00</span></div><span class="tlbl" data-i18n="secs-lbl">SEC</span></div>
       </div>
       <div id="mz">מזל טוב !</div>
     </div>
-
+    <!-- Card 2 : Cérémonie -->
     <div class="card">
       <div class="c-glow"></div>
       <span class="c-icon">🕍</span>
-      <span class="c-eye">Cérémonie</span>
-      <h2 class="c-title">Mise des Téfilines</h2>
+      <span class="c-eye" data-i18n="cer-eye">Cérémonie</span>
+      <h2 class="c-title" data-i18n="cer-title">Mise des Téfilines</h2>
       <div class="c-div">
         <div class="cdl"></div>
         <div class="cdg r"></div><div class="cdg g"></div><div class="cdg b"></div>
         <div class="cdl"></div>
       </div>
-      <div class="c-body">
+      <div class="c-body" data-i18n="cer-body">
         <strong>Jeudi 20 Août 2026 · 9H15</strong><br>
         Synagogue Haya Mouchka<br>
         <em>18 Rue Liandier</em><br>
@@ -441,35 +460,35 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
         suivie d'un <strong>petit déjeuner</strong>
       </div>
       <a href="https://waze.com/ul?q=18+Rue+Liandier+13008+Marseille" class="btn-nav" target="_blank">
-        <span>🚗 &nbsp;ITINÉRAIRE WAZE</span>
+        <span data-i18n="cer-nav">🚗 &nbsp;ITINÉRAIRE WAZE</span>
       </a>
     </div>
-
+    <!-- Card 3 : Soirée -->
     <div class="card">
       <div class="c-glow c-glow2"></div>
       <span class="c-icon">🎉</span>
-      <span class="c-eye">Soirée</span>
-      <h2 class="c-title">Or Aviv · Marseille</h2>
+      <span class="c-eye" data-i18n="soir-eye">Soirée</span>
+      <h2 class="c-title" data-i18n="soir-title">Or Aviv · Marseille</h2>
       <div class="c-div">
         <div class="cdl"></div>
         <div class="cdg b"></div><div class="cdg g"></div><div class="cdg r"></div>
         <div class="cdl"></div>
       </div>
-      <div class="c-body">
+      <div class="c-body" data-i18n="soir-body">
         <strong>Jeudi 20 Août 2026 · 19H00</strong><br><br>
         Salle <em>Or Aviv</em><br>
         62 Chemin des Campanules<br>
         13012 Marseille
       </div>
       <a href="https://waze.com/ul?q=62+Chemin+des+Campanules+13012+Marseille" class="btn-nav" target="_blank">
-        <span>🚗 &nbsp;ITINÉRAIRE WAZE</span>
+        <span data-i18n="soir-nav">🚗 &nbsp;ITINÉRAIRE WAZE</span>
       </a>
     </div>
-
+    <!-- Card 4 : Chabat -->
     <div class="card card-chabat">
       <div class="c-glow"></div>
       <span class="c-icon">✡️</span>
-      <span class="c-eye">Week-end Chabat Hatan</span>
+      <span class="c-eye" data-i18n="chab-eye">Week-end Chabat Hatan</span>
       <h2 class="c-title">שַׁבָּת חָתָן</h2>
       <div class="c-div">
         <div class="cdl"></div>
@@ -479,28 +498,28 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
       <div class="chabat-row">
         <div class="chabat-dot"></div>
         <div class="chabat-txt">
-          <span class="chabat-when">Vendredi Soir</span>
-          <span class="chabat-detail"><strong>Repas du Chabat Hatan</strong></span>
+          <span class="chabat-when" data-i18n="chab-ven-when">Vendredi Soir</span>
+          <span class="chabat-detail" data-i18n="chab-ven-detail"><strong>Repas du Chabat Hatan</strong></span>
           <span class="chabat-lieu">Synagogue Haya Mouchka<br>18 Rue Liandier · 13008 Marseille</span>
         </div>
       </div>
       <div class="chabat-row">
         <div class="chabat-dot"></div>
         <div class="chabat-txt">
-          <span class="chabat-when">Samedi Midi</span>
-          <span class="chabat-detail"><strong>Repas du Chabat Hatan</strong></span>
+          <span class="chabat-when" data-i18n="chab-sam-when">Samedi Midi</span>
+          <span class="chabat-detail" data-i18n="chab-sam-detail"><strong>Repas du Chabat Hatan</strong></span>
           <span class="chabat-lieu">Synagogue Haya Mouchka<br>18 Rue Liandier · 13008 Marseille</span>
         </div>
       </div>
       <a href="https://waze.com/ul?q=18+Rue+Liandier+13008+Marseille" class="btn-nav" target="_blank" style="margin-top:18px">
-        <span>🚗 &nbsp;ITINÉRAIRE WAZE</span>
+        <span data-i18n="chab-nav">🚗 &nbsp;ITINÉRAIRE WAZE</span>
       </a>
     </div>
-
+    <!-- Card 5 : RSVP -->
     <div class="card">
       <div class="c-glow"></div>
       <span class="c-icon">✉️</span>
-      <span class="c-eye">Confirmation de présence</span>
+      <span class="c-eye" data-i18n="rsvp-eye">Confirmation de présence</span>
       <h2 class="c-title">RSVP</h2>
       <div class="c-div">
         <div class="cdl"></div>
@@ -509,110 +528,219 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
       </div>
       <form id="rsvp-form" onsubmit="sendRSVP(event)">
         <div class="f-grp">
-          <label class="f-lbl">Nom &amp; Prénom</label>
-          <input class="f-inp" id="f-nom" type="text" placeholder="Votre nom complet" required>
+          <label class="f-lbl" data-i18n="lbl-nom">Nom &amp; Prénom</label>
+          <input class="f-inp" id="f-nom" type="text" data-i18n-ph="ph-nom" placeholder="Votre nom complet" required>
         </div>
-
-        <div class="f-section-title">🕍 Mise des Téfilines</div>
+        <div class="f-section-title" data-i18n="rsvp-sec-tef">🕍 Mise des Téfilines</div>
         <div class="f-grp">
-          <label class="f-lbl">Présence</label>
+          <label class="f-lbl" data-i18n="lbl-presence">Présence</label>
           <div class="radio-group">
-            <label class="radio-opt selected" id="opt-tef-oui"><input type="radio" name="tef" value="oui" checked onchange="handleRadio('tef','oui')"><span>OUI</span></label>
-            <label class="radio-opt" id="opt-tef-non"><input type="radio" name="tef" value="non" onchange="handleRadio('tef','non')"><span>NON</span></label>
+            <label class="radio-opt selected" id="opt-tef-oui"><input type="radio" name="tef" value="oui" checked onchange="handleRadio('tef','oui')"><span data-i18n="opt-oui">OUI</span></label>
+            <label class="radio-opt" id="opt-tef-non"><input type="radio" name="tef" value="non" onchange="handleRadio('tef','non')"><span data-i18n="opt-non">NON</span></label>
           </div>
         </div>
         <div class="nb-wrap open" id="nb-tef">
           <div class="nb-duo">
             <div class="nb-col">
-              <label class="f-lbl">Adultes</label>
+              <label class="f-lbl" data-i18n="lbl-adultes">Adultes</label>
               <input class="f-inp" id="f-nb-tef-adultes" type="number" min="0" max="50" value="1" placeholder="0">
             </div>
             <div class="nb-col">
-              <label class="f-lbl">Enfants</label>
+              <label class="f-lbl" data-i18n="lbl-enfants">Enfants</label>
               <input class="f-inp" id="f-nb-tef-enfants" type="number" min="0" max="50" value="0" placeholder="0">
             </div>
           </div>
         </div>
-
-        <div class="f-section-title">🎉 Soirée Or Aviv</div>
+        <div class="f-section-title" data-i18n="rsvp-sec-soir">🎉 Soirée Or Aviv</div>
         <div class="f-grp">
-          <label class="f-lbl">Présence</label>
+          <label class="f-lbl" data-i18n="lbl-presence">Présence</label>
           <div class="radio-group">
-            <label class="radio-opt selected" id="opt-soir-oui"><input type="radio" name="soir" value="oui" checked onchange="handleRadio('soir','oui')"><span>OUI</span></label>
-            <label class="radio-opt" id="opt-soir-non"><input type="radio" name="soir" value="non" onchange="handleRadio('soir','non')"><span>NON</span></label>
+            <label class="radio-opt selected" id="opt-soir-oui"><input type="radio" name="soir" value="oui" checked onchange="handleRadio('soir','oui')"><span data-i18n="opt-oui">OUI</span></label>
+            <label class="radio-opt" id="opt-soir-non"><input type="radio" name="soir" value="non" onchange="handleRadio('soir','non')"><span data-i18n="opt-non">NON</span></label>
           </div>
         </div>
         <div class="nb-wrap open" id="nb-soir">
           <div class="nb-duo">
             <div class="nb-col">
-              <label class="f-lbl">Adultes</label>
+              <label class="f-lbl" data-i18n="lbl-adultes">Adultes</label>
               <input class="f-inp" id="f-nb-soir-adultes" type="number" min="0" max="50" value="1" placeholder="0">
             </div>
             <div class="nb-col">
-              <label class="f-lbl">Enfants</label>
+              <label class="f-lbl" data-i18n="lbl-enfants">Enfants</label>
               <input class="f-inp" id="f-nb-soir-enfants" type="number" min="0" max="50" value="0" placeholder="0">
             </div>
           </div>
         </div>
-
-        <div class="f-section-title">✡️ Chabat Hatan</div>
+        <div class="f-section-title" data-i18n="rsvp-sec-chab">✡️ Chabat Hatan</div>
         <div class="f-grp">
-          <label class="f-lbl">Vendredi Soir</label>
+          <label class="f-lbl" data-i18n="lbl-chab-ven">Vendredi Soir</label>
           <div class="radio-group">
-            <label class="radio-opt selected" id="opt-chab-ven-oui"><input type="radio" name="chab-ven" value="oui" checked onchange="handleRadio('chab-ven','oui')"><span>OUI</span></label>
-            <label class="radio-opt" id="opt-chab-ven-non"><input type="radio" name="chab-ven" value="non" onchange="handleRadio('chab-ven','non')"><span>NON</span></label>
+            <label class="radio-opt selected" id="opt-chab-ven-oui"><input type="radio" name="chab-ven" value="oui" checked onchange="handleRadio('chab-ven','oui')"><span data-i18n="opt-oui">OUI</span></label>
+            <label class="radio-opt" id="opt-chab-ven-non"><input type="radio" name="chab-ven" value="non" onchange="handleRadio('chab-ven','non')"><span data-i18n="opt-non">NON</span></label>
           </div>
         </div>
         <div class="nb-wrap open" id="nb-chab-ven">
           <div class="nb-duo">
             <div class="nb-col">
-              <label class="f-lbl">Adultes</label>
+              <label class="f-lbl" data-i18n="lbl-adultes">Adultes</label>
               <input class="f-inp" id="f-nb-chab-ven-adultes" type="number" min="0" max="50" value="1" placeholder="0">
             </div>
             <div class="nb-col">
-              <label class="f-lbl">Enfants</label>
+              <label class="f-lbl" data-i18n="lbl-enfants">Enfants</label>
               <input class="f-inp" id="f-nb-chab-ven-enfants" type="number" min="0" max="50" value="0" placeholder="0">
             </div>
           </div>
         </div>
         <div class="f-grp">
-          <label class="f-lbl">Samedi Midi</label>
+          <label class="f-lbl" data-i18n="lbl-chab-sam">Samedi Midi</label>
           <div class="radio-group">
-            <label class="radio-opt selected" id="opt-chab-sam-oui"><input type="radio" name="chab-sam" value="oui" checked onchange="handleRadio('chab-sam','oui')"><span>OUI</span></label>
-            <label class="radio-opt" id="opt-chab-sam-non"><input type="radio" name="chab-sam" value="non" onchange="handleRadio('chab-sam','non')"><span>NON</span></label>
+            <label class="radio-opt selected" id="opt-chab-sam-oui"><input type="radio" name="chab-sam" value="oui" checked onchange="handleRadio('chab-sam','oui')"><span data-i18n="opt-oui">OUI</span></label>
+            <label class="radio-opt" id="opt-chab-sam-non"><input type="radio" name="chab-sam" value="non" onchange="handleRadio('chab-sam','non')"><span data-i18n="opt-non">NON</span></label>
           </div>
         </div>
         <div class="nb-wrap open" id="nb-chab-sam">
           <div class="nb-duo">
             <div class="nb-col">
-              <label class="f-lbl">Adultes</label>
+              <label class="f-lbl" data-i18n="lbl-adultes">Adultes</label>
               <input class="f-inp" id="f-nb-chab-sam-adultes" type="number" min="0" max="50" value="1" placeholder="0">
             </div>
             <div class="nb-col">
-              <label class="f-lbl">Enfants</label>
+              <label class="f-lbl" data-i18n="lbl-enfants">Enfants</label>
               <input class="f-inp" id="f-nb-chab-sam-enfants" type="number" min="0" max="50" value="0" placeholder="0">
             </div>
           </div>
         </div>
-
         <div class="f-grp">
-          <label class="f-lbl">Message pour Nissim 💙</label>
-          <textarea class="f-textarea" id="f-msg" placeholder="Votre message, bénédiction…" rows="3"></textarea>
+          <label class="f-lbl" data-i18n="lbl-msg">Message pour Nissim 💙</label>
+          <textarea class="f-textarea" id="f-msg" data-i18n-ph="ph-msg" placeholder="Votre message, bénédiction…" rows="3"></textarea>
         </div>
         <button type="submit" class="btn-send" id="btn-send">
-          <span id="btn-send-txt">✦ &nbsp; CONFIRMER MA PRÉSENCE &nbsp; ✦</span>
+          <span id="btn-send-txt" data-i18n="btn-send-txt">✦ &nbsp; CONFIRMER MA PRÉSENCE &nbsp; ✦</span>
         </button>
       </form>
       <div class="conf" id="conf">
         <span class="conf-icon">✨</span>
-        <p class="conf-txt">Merci ! Votre réponse a bien été enregistrée.<br>À très bientôt à Marseille 🌟</p>
+        <p class="conf-txt" data-i18n="conf-txt">Merci ! Votre réponse a bien été enregistrée.<br>À très bientôt à Marseille 🌟</p>
       </div>
     </div>
   </div>
   <footer>NISSIM REBIBO · BAR-MITZVA · MARSEILLE · 5786</footer>
 </section>
-
 <script>
+/* ─── TRANSLATIONS ─────────────────────────────────────────── */
+const TRANSLATIONS = {
+  fr: {
+    'date'         : '✦ &nbsp; MARSEILLE · 20 AOÛT 2026 &nbsp; ✦',
+    'btn-enter'    : "VOIR L'INVITATION",
+    'btn-lang'     : '🇬🇧 ENGLISH',
+    'cd-eye'       : 'Compte à rebours',
+    'days-lbl'     : 'JOURS',
+    'hours-lbl'    : 'HEURES',
+    'mins-lbl'     : 'MIN',
+    'secs-lbl'     : 'SEC',
+    'cer-eye'      : 'Cérémonie',
+    'cer-title'    : 'Mise des Téfilines',
+    'cer-body'     : "<strong>Jeudi 20 Août 2026 · 9H15</strong><br>Synagogue Haya Mouchka<br><em>18 Rue Liandier</em><br>13008 Marseille<br><br>suivie d'un <strong>petit déjeuner</strong>",
+    'cer-nav'      : '🚗 &nbsp;ITINÉRAIRE WAZE',
+    'soir-eye'     : 'Soirée',
+    'soir-title'   : 'Or Aviv · Marseille',
+    'soir-body'    : '<strong>Jeudi 20 Août 2026 · 19H00</strong><br><br>Salle <em>Or Aviv</em><br>62 Chemin des Campanules<br>13012 Marseille',
+    'soir-nav'     : '🚗 &nbsp;ITINÉRAIRE WAZE',
+    'chab-eye'     : 'Week-end Chabat Hatan',
+    'chab-ven-when': 'Vendredi Soir',
+    'chab-ven-detail':'<strong>Repas du Chabat Hatan</strong>',
+    'chab-sam-when': 'Samedi Midi',
+    'chab-sam-detail':'<strong>Repas du Chabat Hatan</strong>',
+    'chab-nav'     : '🚗 &nbsp;ITINÉRAIRE WAZE',
+    'rsvp-eye'     : 'Confirmation de présence',
+    'rsvp-sec-tef' : '🕍 Mise des Téfilines',
+    'rsvp-sec-soir': '🎉 Soirée Or Aviv',
+    'rsvp-sec-chab': '✡️ Chabat Hatan',
+    'lbl-nom'      : 'Nom &amp; Prénom',
+    'lbl-presence' : 'Présence',
+    'lbl-adultes'  : 'Adultes',
+    'lbl-enfants'  : 'Enfants',
+    'lbl-chab-ven' : 'Vendredi Soir',
+    'lbl-chab-sam' : 'Samedi Midi',
+    'lbl-msg'      : 'Message pour Nissim 💙',
+    'ph-nom'       : 'Votre nom complet',
+    'ph-msg'       : 'Votre message, bénédiction…',
+    'opt-oui'      : 'OUI',
+    'opt-non'      : 'NON',
+    'btn-send-txt' : '✦ &nbsp; CONFIRMER MA PRÉSENCE &nbsp; ✦',
+    'btn-sending'  : '<span class="spinner"></span> ENVOI EN COURS…',
+    'conf-txt'     : 'Merci ! Votre réponse a bien été enregistrée.<br>À très bientôt à Marseille 🌟',
+    'music-play'   : 'MUSIQUE',
+    'music-pause'  : 'PAUSE',
+  },
+  en: {
+    'date'         : '✦ &nbsp; MARSEILLE · AUGUST 20, 2026 &nbsp; ✦',
+    'btn-enter'    : 'SEE THE INVITATION',
+    'btn-lang'     : '🇫🇷 FRANÇAIS',
+    'cd-eye'       : 'Countdown',
+    'days-lbl'     : 'DAYS',
+    'hours-lbl'    : 'HOURS',
+    'mins-lbl'     : 'MIN',
+    'secs-lbl'     : 'SEC',
+    'cer-eye'      : 'Ceremony',
+    'cer-title'    : 'Tefillin Ceremony',
+    'cer-body'     : '<strong>Thursday, August 20, 2026 · 9:15 AM</strong><br>Synagogue Haya Mouchka<br><em>18 Rue Liandier</em><br>13008 Marseille<br><br>followed by a <strong>breakfast</strong>',
+    'cer-nav'      : '🚗 &nbsp;WAZE DIRECTIONS',
+    'soir-eye'     : 'Evening',
+    'soir-title'   : 'Or Aviv · Marseille',
+    'soir-body'    : '<strong>Thursday, August 20, 2026 · 7:00 PM</strong><br><br>Hall <em>Or Aviv</em><br>62 Chemin des Campanules<br>13012 Marseille',
+    'soir-nav'     : '🚗 &nbsp;WAZE DIRECTIONS',
+    'chab-eye'     : 'Shabbat Hatan Weekend',
+    'chab-ven-when': 'Friday Evening',
+    'chab-ven-detail':'<strong>Shabbat Hatan Dinner</strong>',
+    'chab-sam-when': 'Saturday Lunch',
+    'chab-sam-detail':'<strong>Shabbat Hatan Lunch</strong>',
+    'chab-nav'     : '🚗 &nbsp;WAZE DIRECTIONS',
+    'rsvp-eye'     : 'Attendance Confirmation',
+    'rsvp-sec-tef' : '🕍 Tefillin Ceremony',
+    'rsvp-sec-soir': '🎉 Or Aviv Evening',
+    'rsvp-sec-chab': '✡️ Shabbat Hatan',
+    'lbl-nom'      : 'First &amp; Last Name',
+    'lbl-presence' : 'Attendance',
+    'lbl-adultes'  : 'Adults',
+    'lbl-enfants'  : 'Children',
+    'lbl-chab-ven' : 'Friday Evening',
+    'lbl-chab-sam' : 'Saturday Lunch',
+    'lbl-msg'      : 'Message for Nissim 💙',
+    'ph-nom'       : 'Your full name',
+    'ph-msg'       : 'Your message, blessing…',
+    'opt-oui'      : 'YES',
+    'opt-non'      : 'NO',
+    'btn-send-txt' : '✦ &nbsp; CONFIRM MY ATTENDANCE &nbsp; ✦',
+    'btn-sending'  : '<span class="spinner"></span> SENDING…',
+    'conf-txt'     : 'Thank you! Your response has been recorded.<br>See you soon in Marseille 🌟',
+    'music-play'   : 'MUSIC',
+    'music-pause'  : 'PAUSE',
+  }
+};
+
+let currentLang = 'fr';
+
+function applyLang(lang) {
+  const t = TRANSLATIONS[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.getAttribute('data-i18n-ph');
+    if (t[key] !== undefined) el.placeholder = t[key];
+  });
+  const musicBtn = document.getElementById('music-btn');
+  musicBtn.setAttribute('data-tip', playing ? t['music-pause'] : t['music-play']);
+  currentLang = lang;
+}
+
+function toggleLang() {
+  applyLang(currentLang === 'fr' ? 'en' : 'fr');
+}
+/* ─────────────────────────────────────────────────────────── */
+
 const CV=document.getElementById('cv'),ct=CV.getContext('2d');
 let W,H,T=0;
 function resize(){W=CV.width=window.innerWidth;H=CV.height=window.innerHeight}
@@ -722,32 +850,42 @@ function loop(ts){
   requestAnimationFrame(loop);
 }
 requestAnimationFrame(loop);
-
 const CE=document.getElementById('C'),RE=document.getElementById('R');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
 (function ac(){CE.style.left=mx+'px';CE.style.top=my+'px';rx+=(mx-rx)*.1;ry+=(my-ry)*.1;RE.style.left=rx+'px';RE.style.top=ry+'px';requestAnimationFrame(ac)})();
 if('ontouchstart' in window){CE.style.display='none';RE.style.display='none'}
-
 let musicStarted=false,playing=false;
 const audio=document.getElementById('audio'),musicBtn=document.getElementById('music-btn'),eq=document.getElementById('eq');
-function fadeInAudio(){audio.volume=0;audio.play().catch(()=>{});let v=0;const iv=setInterval(()=>{v=Math.min(1,v+.02);audio.volume=v;if(v>=1)clearInterval(iv)},60);playing=true;musicBtn.classList.add('playing');musicBtn.setAttribute('data-tip','PAUSE');eq.classList.remove('paused')}
-function fadeOutAudio(){const iv=setInterval(()=>{audio.volume=Math.max(0,audio.volume-.02);if(audio.volume<=0){audio.pause();clearInterval(iv)}},60)}
-musicBtn.addEventListener('click',()=>{if(!playing){if(!musicStarted)musicStarted=true;fadeInAudio()}else{fadeOutAudio();playing=false;musicBtn.classList.remove('playing');musicBtn.setAttribute('data-tip','MUSIQUE');eq.classList.add('paused')}});
+function fadeInAudio(){
+  audio.volume=0;audio.play().catch(()=>{});
+  let v=0;const iv=setInterval(()=>{v=Math.min(1,v+.02);audio.volume=v;if(v>=1)clearInterval(iv)},60);
+  playing=true;musicBtn.classList.add('playing');
+  musicBtn.setAttribute('data-tip', TRANSLATIONS[currentLang]['music-pause']);
+  eq.classList.remove('paused');
+}
+function fadeOutAudio(){
+  const iv=setInterval(()=>{audio.volume=Math.max(0,audio.volume-.02);if(audio.volume<=0){audio.pause();clearInterval(iv)}},60);
+}
+musicBtn.addEventListener('click',()=>{
+  if(!playing){
+    if(!musicStarted)musicStarted=true;
+    fadeInAudio();
+  }else{
+    fadeOutAudio();playing=false;musicBtn.classList.remove('playing');
+    musicBtn.setAttribute('data-tip', TRANSLATIONS[currentLang]['music-play']);
+    eq.classList.add('paused');
+  }
+});
 audio.addEventListener('pause',()=>{if(playing)setTimeout(()=>{if(playing)audio.play().catch(()=>{})},300)});
-
 function enterInvitation(){if(!musicStarted){musicStarted=true;fadeInAudio();}setTimeout(()=>document.getElementById('section-invite').scrollIntoView({behavior:'smooth'}),200)}
-
 const TARGET=new Date('August 20, 2026 09:15:00').getTime();
 function tick(){const gap=TARGET-Date.now();if(gap<=0){document.getElementById('cd').style.display='none';document.getElementById('mz').style.display='block';return}const S=1000,M=S*60,Hr=M*60,D=Hr*24;document.getElementById('days').textContent=String(Math.floor(gap/D)).padStart(2,'0');document.getElementById('hours').textContent=String(Math.floor((gap%D)/Hr)).padStart(2,'0');document.getElementById('mins').textContent=String(Math.floor((gap%Hr)/M)).padStart(2,'0');document.getElementById('secs').textContent=String(Math.floor((gap%M)/S)).padStart(2,'0')}
 setInterval(tick,1000);tick();
-
 function revealAll(){document.querySelectorAll('.reveal').forEach((el,i)=>setTimeout(()=>el.classList.add('vis'),i*120));document.querySelectorAll('.card').forEach((c,i)=>{new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)setTimeout(()=>c.classList.add('vis'),i*130)})},{threshold:.06}).observe(c)})}
 new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)revealAll()})},{threshold:.05}).observe(document.getElementById('section-invite'));
-
 function handleRadio(group,val){const oui=document.getElementById('opt-'+group+'-oui'),non=document.getElementById('opt-'+group+'-non'),nb=document.getElementById('nb-'+group);if(val==='oui'){oui.classList.add('selected');non.classList.remove('selected');nb.classList.add('open');const adultes=nb.querySelector('[id$="-adultes"]');if(adultes&&(!adultes.value||adultes.value<1))adultes.value=1}else{non.classList.add('selected');oui.classList.remove('selected');nb.classList.remove('open');nb.querySelectorAll('input[type=number]').forEach(i=>i.value=0)}}
 document.querySelectorAll('.radio-opt').forEach(opt=>{opt.addEventListener('click',function(){const inp=this.querySelector('input');if(inp){inp.checked=true;inp.dispatchEvent(new Event('change'))}})});
-
 const SCRIPT_URL='https://script.google.com/macros/s/VOTRE_SCRIPT_ID/exec';
 async function sendRSVP(e){
   e.preventDefault();
@@ -758,7 +896,7 @@ async function sendRSVP(e){
   const chk=(name)=>document.querySelector('input[name="'+name+'"]:checked')?.value||'non';
   const tefVal=chk('tef'),soirVal=chk('soir'),chabVenVal=chk('chab-ven'),chabSamVal=chk('chab-sam');
   const msg=document.getElementById('f-msg').value.trim();
-  btn.disabled=true;btnTxt.innerHTML='<span class="spinner"></span> ENVOI EN COURS…';
+  btn.disabled=true;btnTxt.innerHTML=TRANSLATIONS[currentLang]['btn-sending'];
   const params=new URLSearchParams({
     nom,
     tef:tefVal==='oui'?'Oui':'Non',
