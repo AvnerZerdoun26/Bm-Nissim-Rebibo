@@ -886,7 +886,7 @@ function revealAll(){document.querySelectorAll('.reveal').forEach((el,i)=>setTim
 new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)revealAll()})},{threshold:.05}).observe(document.getElementById('section-invite'));
 function handleRadio(group,val){const oui=document.getElementById('opt-'+group+'-oui'),non=document.getElementById('opt-'+group+'-non'),nb=document.getElementById('nb-'+group);if(val==='oui'){oui.classList.add('selected');non.classList.remove('selected');nb.classList.add('open');const adultes=nb.querySelector('[id$="-adultes"]');if(adultes&&(!adultes.value||adultes.value<1))adultes.value=1}else{non.classList.add('selected');oui.classList.remove('selected');nb.classList.remove('open');nb.querySelectorAll('input[type=number]').forEach(i=>i.value=0)}}
 document.querySelectorAll('.radio-opt').forEach(opt=>{opt.addEventListener('click',function(){const inp=this.querySelector('input');if(inp){inp.checked=true;inp.dispatchEvent(new Event('change'))}})});
-const SCRIPT_URL='https://script.google.com/macros/s/VOTRE_SCRIPT_ID/exec';
+const SCRIPT_URL='https://script.google.com/macros/s/AKfycbxXlYrwWrQJQhDGj7lRLVPwkc_c_Vo7VuppC7_EbDRW-TP-UmRq0v5u13pfCeVHXY72JQ/exec';
 async function sendRSVP(e){
   e.preventDefault();
   const btn=document.getElementById('btn-send'),btnTxt=document.getElementById('btn-send-txt');
