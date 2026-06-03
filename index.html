@@ -260,16 +260,6 @@ body{font-family:'Cormorant Garamond',serif;color:white;background:var(--deep);o
 .tlbl{font-family:'Cinzel',serif;font-size:.34rem;letter-spacing:3px;color:var(--terra2)}
 .tsep{font-family:'Cinzel',serif;font-size:1rem;color:rgba(200,75,49,.4);align-self:center;margin-bottom:14px;width:14px;text-align:center;flex-shrink:0}
 #mz{display:none;font-family:'Great Vibes',cursive;font-size:2.8rem;color:var(--sun);margin:18px 0;text-shadow:0 0 40px rgba(245,166,35,.5)}
-.card-chabat{border-color:rgba(200,169,110,.28) !important;}
-.card-chabat::before{background:linear-gradient(90deg,var(--gold),var(--sun2),var(--gold2),var(--sun2),var(--gold)) !important;}
-.chabat-row{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid rgba(200,169,110,.1)}
-.chabat-row:last-child{border-bottom:none}
-.chabat-dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--sun));flex-shrink:0;margin-top:6px;box-shadow:0 0 8px rgba(245,166,35,.5)}
-.chabat-txt{flex:1}
-.chabat-when{font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:4px;color:var(--sun);display:block;margin-bottom:4px}
-.chabat-detail{font-size:1rem;color:rgba(255,255,255,.7);line-height:1.8;font-style:italic}
-.chabat-detail strong{font-style:normal;color:white}
-.chabat-lieu{display:block;color:var(--gold2);font-size:.92rem;margin-top:3px}
 .f-grp{margin-top:18px;text-align:left}
 .f-lbl{font-family:'Cinzel',serif;font-size:.48rem;letter-spacing:5px;color:var(--terra2);display:block;margin-bottom:9px}
 .f-inp{width:100%;background:rgba(0,0,0,.45);border:1px solid rgba(200,75,49,.2);border-radius:12px;padding:14px 18px;color:white;font-family:'Cormorant Garamond',serif;font-size:1.05rem;outline:none;transition:border-color .3s,box-shadow .3s;-webkit-appearance:none;appearance:none}
@@ -489,36 +479,6 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
         <span data-i18n="soir-nav">🚗 &nbsp;ITINÉRAIRE WAZE</span>
       </a>
     </div>
-    <div class="card card-chabat">
-      <div class="c-glow"></div>
-      <span class="c-icon">✡️</span>
-      <span class="c-eye" data-i18n="chab-eye">Week-end Chabat Hatan</span>
-      <h2 class="c-title">שַׁבָּת חָתָן</h2>
-      <div class="c-div">
-        <div class="cdl"></div>
-        <div class="cdg g"></div><div class="cdg r"></div><div class="cdg g"></div>
-        <div class="cdl"></div>
-      </div>
-      <div class="chabat-row">
-        <div class="chabat-dot"></div>
-        <div class="chabat-txt">
-          <span class="chabat-when" data-i18n="chab-ven-when">Vendredi Soir</span>
-          <span class="chabat-detail" data-i18n="chab-ven-detail"><strong>Repas du Chabat Hatan</strong></span>
-          <span class="chabat-lieu">Synagogue Haya Mouchka<br>18 Rue Liandier · 13008 Marseille</span>
-        </div>
-      </div>
-      <div class="chabat-row">
-        <div class="chabat-dot"></div>
-        <div class="chabat-txt">
-          <span class="chabat-when" data-i18n="chab-sam-when">Samedi Midi</span>
-          <span class="chabat-detail" data-i18n="chab-sam-detail"><strong>Repas du Chabat Hatan</strong></span>
-          <span class="chabat-lieu">Synagogue Haya Mouchka<br>18 Rue Liandier · 13008 Marseille</span>
-        </div>
-      </div>
-      <a href="https://waze.com/ul?q=18+Rue+Liandier+13008+Marseille" class="btn-nav" target="_blank" style="margin-top:18px">
-        <span data-i18n="chab-nav">🚗 &nbsp;ITINÉRAIRE WAZE</span>
-      </a>
-    </div>
     <div class="card">
       <div class="c-glow"></div>
       <span class="c-icon">✉️</span>
@@ -574,45 +534,6 @@ footer{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:7px;color:rgba
             </div>
           </div>
         </div>
-        <div class="f-section-title" data-i18n="rsvp-sec-chab">✡️ Chabat Hatan</div>
-        <div class="f-grp">
-          <label class="f-lbl" data-i18n="lbl-chab-ven">Vendredi Soir</label>
-          <div class="radio-group">
-            <label class="radio-opt selected" id="opt-chab-ven-oui"><input type="radio" name="chab-ven" value="oui" checked onchange="handleRadio('chab-ven','oui')"><span data-i18n="opt-oui">OUI</span></label>
-            <label class="radio-opt" id="opt-chab-ven-non"><input type="radio" name="chab-ven" value="non" onchange="handleRadio('chab-ven','non')"><span data-i18n="opt-non">NON</span></label>
-          </div>
-        </div>
-        <div class="nb-wrap open" id="nb-chab-ven">
-          <div class="nb-duo">
-            <div class="nb-col">
-              <label class="f-lbl" data-i18n="lbl-adultes">Adultes</label>
-              <input class="f-inp" id="f-nb-chab-ven-adultes" type="number" min="0" max="50" value="1" placeholder="0">
-            </div>
-            <div class="nb-col">
-              <label class="f-lbl" data-i18n="lbl-enfants">Enfants</label>
-              <input class="f-inp" id="f-nb-chab-ven-enfants" type="number" min="0" max="50" value="0" placeholder="0">
-            </div>
-          </div>
-        </div>
-        <div class="f-grp">
-          <label class="f-lbl" data-i18n="lbl-chab-sam">Samedi Midi</label>
-          <div class="radio-group">
-            <label class="radio-opt selected" id="opt-chab-sam-oui"><input type="radio" name="chab-sam" value="oui" checked onchange="handleRadio('chab-sam','oui')"><span data-i18n="opt-oui">OUI</span></label>
-            <label class="radio-opt" id="opt-chab-sam-non"><input type="radio" name="chab-sam" value="non" onchange="handleRadio('chab-sam','non')"><span data-i18n="opt-non">NON</span></label>
-          </div>
-        </div>
-        <div class="nb-wrap open" id="nb-chab-sam">
-          <div class="nb-duo">
-            <div class="nb-col">
-              <label class="f-lbl" data-i18n="lbl-adultes">Adultes</label>
-              <input class="f-inp" id="f-nb-chab-sam-adultes" type="number" min="0" max="50" value="1" placeholder="0">
-            </div>
-            <div class="nb-col">
-              <label class="f-lbl" data-i18n="lbl-enfants">Enfants</label>
-              <input class="f-inp" id="f-nb-chab-sam-enfants" type="number" min="0" max="50" value="0" placeholder="0">
-            </div>
-          </div>
-        </div>
         <div class="f-grp">
           <label class="f-lbl" data-i18n="lbl-msg">Message pour Nissim 💙</label>
           <textarea class="f-textarea" id="f-msg" data-i18n-ph="ph-msg" placeholder="Votre message, bénédiction…" rows="3"></textarea>
@@ -646,24 +567,15 @@ const TRANSLATIONS = {
     'cer-nav'      : '🚗 &nbsp;ITINÉRAIRE WAZE',
     'soir-eye'     : 'Soirée',
     'soir-title'   : 'Or Aviv · Marseille',
-    'soir-body'    : '<strong>Jeudi 20 Août 2026 · 19H00</strong><br><br>Salle <em>Or Aviv</em><br>62 Chemin des Campanules<br>13012 Marseille',
+    'soir-body'    : '<strong>Mercredi 9 Septembre 2026 · 19H30</strong><br><br>Salle <em>Or Aviv</em><br>62 Chemin des Campanules<br>13012 Marseille',
     'soir-nav'     : '🚗 &nbsp;ITINÉRAIRE WAZE',
-    'chab-eye'     : 'Week-end Chabat Hatan',
-    'chab-ven-when': 'Vendredi Soir',
-    'chab-ven-detail':'<strong>Repas du Chabat Hatan</strong>',
-    'chab-sam-when': 'Samedi Midi',
-    'chab-sam-detail':'<strong>Repas du Chabat Hatan</strong>',
-    'chab-nav'     : '🚗 &nbsp;ITINÉRAIRE WAZE',
     'rsvp-eye'     : 'Confirmation de présence',
     'rsvp-sec-tef' : '🕍 Mise des Téfilines',
     'rsvp-sec-soir': '🎉 Soirée Or Aviv',
-    'rsvp-sec-chab': '✡️ Chabat Hatan',
     'lbl-nom'      : 'Nom &amp; Prénom',
     'lbl-presence' : 'Présence',
     'lbl-adultes'  : 'Adultes',
     'lbl-enfants'  : 'Enfants',
-    'lbl-chab-ven' : 'Vendredi Soir',
-    'lbl-chab-sam' : 'Samedi Midi',
     'lbl-msg'      : 'Message pour Nissim 💙',
     'ph-nom'       : 'Votre nom complet',
     'ph-msg'       : 'Votre message, bénédiction…',
@@ -690,24 +602,15 @@ const TRANSLATIONS = {
     'cer-nav'      : '🚗 &nbsp;WAZE DIRECTIONS',
     'soir-eye'     : 'Evening',
     'soir-title'   : 'Or Aviv · Marseille',
-    'soir-body'    : '<strong>Thursday, August 20, 2026 · 7:00 PM</strong><br><br>Hall <em>Or Aviv</em><br>62 Chemin des Campanules<br>13012 Marseille',
+    'soir-body'    : '<strong>Wednesday, September 9, 2026 · 7:30 PM</strong><br><br>Hall <em>Or Aviv</em><br>62 Chemin des Campanules<br>13012 Marseille',
     'soir-nav'     : '🚗 &nbsp;WAZE DIRECTIONS',
-    'chab-eye'     : 'Shabbat Hatan Weekend',
-    'chab-ven-when': 'Friday Evening',
-    'chab-ven-detail':'<strong>Shabbat Hatan Dinner</strong>',
-    'chab-sam-when': 'Saturday Lunch',
-    'chab-sam-detail':'<strong>Shabbat Hatan Lunch</strong>',
-    'chab-nav'     : '🚗 &nbsp;WAZE DIRECTIONS',
     'rsvp-eye'     : 'Attendance Confirmation',
     'rsvp-sec-tef' : '🕍 Tefillin Ceremony',
     'rsvp-sec-soir': '🎉 Or Aviv Evening',
-    'rsvp-sec-chab': '✡️ Shabbat Hatan',
     'lbl-nom'      : 'First &amp; Last Name',
     'lbl-presence' : 'Attendance',
     'lbl-adultes'  : 'Adults',
     'lbl-enfants'  : 'Children',
-    'lbl-chab-ven' : 'Friday Evening',
-    'lbl-chab-sam' : 'Saturday Lunch',
     'lbl-msg'      : 'Message for Nissim 💙',
     'ph-nom'       : 'Your full name',
     'ph-msg'       : 'Your message, blessing…',
@@ -786,9 +689,8 @@ new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)revealAll()})},
 function handleRadio(group,val){const oui=document.getElementById('opt-'+group+'-oui'),non=document.getElementById('opt-'+group+'-non'),nb=document.getElementById('nb-'+group);if(val==='oui'){oui.classList.add('selected');non.classList.remove('selected');nb.classList.add('open');const adultes=nb.querySelector('[id$="-adultes"]');if(adultes&&(!adultes.value||adultes.value<1))adultes.value=1}else{non.classList.add('selected');oui.classList.remove('selected');nb.classList.remove('open');nb.querySelectorAll('input[type=number]').forEach(i=>i.value=0)}}
 document.querySelectorAll('.radio-opt').forEach(opt=>{opt.addEventListener('click',function(){const inp=this.querySelector('input');if(inp){inp.checked=true;inp.dispatchEvent(new Event('change'))}})});
 const SCRIPT_URL='https://script.google.com/macros/s/AKfycbxXlYrwWrQJQhDGj7lRLVPwkc_c_Vo7VuppC7_EbDRW-TP-UmRq0v5u13pfCeVHXY72JQ/exec';
-async function sendRSVP(e){e.preventDefault();const btn=document.getElementById('btn-send'),btnTxt=document.getElementById('btn-send-txt');const nom=document.getElementById('f-nom').value.trim();if(!nom){document.getElementById('f-nom').focus();return}const v=(id)=>parseInt(document.getElementById(id)?.value)||0;const chk=(name)=>document.querySelector('input[name="'+name+'"]:checked')?.value||'non';const tefVal=chk('tef'),soirVal=chk('soir'),chabVenVal=chk('chab-ven'),chabSamVal=chk('chab-sam');const msg=document.getElementById('f-msg').value.trim();btn.disabled=true;btnTxt.innerHTML=TRANSLATIONS[currentLang]['btn-sending'];const params=new URLSearchParams({nom,tef:tefVal==='oui'?'Oui':'Non',tef_adultes:tefVal==='oui'?v('f-nb-tef-adultes'):0,tef_enfants:tefVal==='oui'?v('f-nb-tef-enfants'):0,soir:soirVal==='oui'?'Oui':'Non',soir_adultes:soirVal==='oui'?v('f-nb-soir-adultes'):0,soir_enfants:soirVal==='oui'?v('f-nb-soir-enfants'):0,chab_ven:chabVenVal==='oui'?'Oui':'Non',chab_ven_adultes:chabVenVal==='oui'?v('f-nb-chab-ven-adultes'):0,chab_ven_enfants:chabVenVal==='oui'?v('f-nb-chab-ven-enfants'):0,chab_sam:chabSamVal==='oui'?'Oui':'Non',chab_sam_adultes:chabSamVal==='oui'?v('f-nb-chab-sam-adultes'):0,chab_sam_enfants:chabSamVal==='oui'?v('f-nb-chab-sam-enfants'):0,message:msg,timestamp:new Date().toLocaleString('fr-FR')});try{await fetch(SCRIPT_URL+'?'+params.toString(),{method:'GET',mode:'no-cors'})}catch{}showConfirmation()}
+async function sendRSVP(e){e.preventDefault();const btn=document.getElementById('btn-send'),btnTxt=document.getElementById('btn-send-txt');const nom=document.getElementById('f-nom').value.trim();if(!nom){document.getElementById('f-nom').focus();return}const v=(id)=>parseInt(document.getElementById(id)?.value)||0;const chk=(name)=>document.querySelector('input[name="'+name+'"]:checked')?.value||'non';const tefVal=chk('tef'),soirVal=chk('soir');const msg=document.getElementById('f-msg').value.trim();btn.disabled=true;btnTxt.innerHTML=TRANSLATIONS[currentLang]['btn-sending'];const params=new URLSearchParams({nom,tef:tefVal==='oui'?'Oui':'Non',tef_adultes:tefVal==='oui'?v('f-nb-tef-adultes'):0,tef_enfants:tefVal==='oui'?v('f-nb-tef-enfants'):0,soir:soirVal==='oui'?'Oui':'Non',soir_adultes:soirVal==='oui'?v('f-nb-soir-adultes'):0,soir_enfants:soirVal==='oui'?v('f-nb-soir-enfants'):0,message:msg,timestamp:new Date().toLocaleString('fr-FR')});try{await fetch(SCRIPT_URL+'?'+params.toString(),{method:'GET',mode:'no-cors'})}catch{}showConfirmation()}
 function showConfirmation(){const form=document.getElementById('rsvp-form');form.style.transition='opacity .4s';form.style.opacity='0';setTimeout(()=>{form.style.display='none';document.getElementById('conf').style.display='block'},400)}
 </script>
 </body>
 </html>
-
